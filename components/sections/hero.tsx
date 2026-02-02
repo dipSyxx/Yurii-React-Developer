@@ -1,6 +1,6 @@
 'use client'
 
-import { motion, useScroll, useTransform } from 'framer-motion'
+import { motion, useScroll, useTransform, type Variants } from 'framer-motion'
 import { ArrowDown, Github, Linkedin, FileText, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { AnimatedOrb } from '@/components/animated-orb'
@@ -20,13 +20,12 @@ const containerVariants = {
   },
 }
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: 'blur(0px)',
-    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] },
+    transition: { duration: 0.7, ease: [0.215, 0.61, 0.355, 1] as const },
   },
 }
 
@@ -111,9 +110,14 @@ export function HeroSection() {
             <motion.div variants={itemVariants}>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4">
                 <span className="text-balance block">Hi, I'm </span>
-                <span className="gradient-text text-balance block">
-                  <WordReveal delay={0.8}>{profile.name}</WordReveal>
-                </span>
+                <motion.span
+                  className="gradient-text text-balance block"
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4, ease: [0.215, 0.61, 0.355, 1] as const }}
+                >
+                  <WordReveal delay={0.1} stagger={0.08}>{profile.name}</WordReveal>
+                </motion.span>
               </h1>
             </motion.div>
             
@@ -185,14 +189,32 @@ export function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* Animated Orb */}
+          {/* Photo + Animated Orb */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8, rotateY: -15 }}
             animate={{ opacity: 1, scale: 1, rotateY: 0 }}
             transition={{ duration: 1, delay: 0.3, ease: [0.215, 0.61, 0.355, 1] }}
-            className="relative h-80 lg:h-[500px]"
+            className="relative h-96 lg:h-[520px] flex items-center justify-center"
           >
-            <AnimatedOrb />
+            <div className="absolute inset-0 flex items-center justify-center">
+              <AnimatedOrb />
+            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6, ease: [0.215, 0.61, 0.355, 1] }}
+              className="relative z-10"
+            >
+              <div className="relative h-56 w-56 sm:h-64 sm:w-64 lg:h-80 lg:w-80 rounded-full overflow-hidden border border-border bg-card/70 shadow-2xl shadow-primary/10 backdrop-blur">
+                <img
+                  src="/myPhoto/myphoto.png"
+                  alt={profile.name}
+                  className="h-full w-full object-cover object-center"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
+              </div>
+              <div className="absolute -inset-3 rounded-full bg-gradient-to-br from-gradient-start/30 via-gradient-mid/10 to-gradient-end/30 blur-xl -z-10" />
+            </motion.div>
           </motion.div>
         </div>
       </motion.div>
@@ -224,3 +246,7 @@ export function HeroSection() {
     </section>
   )
 }
+
+
+
+
