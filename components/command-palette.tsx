@@ -1,7 +1,7 @@
-'use client'
+"use client";
 
-import { useEffect, useCallback } from 'react'
-import { useRouter } from 'next/navigation'
+import { useEffect, useCallback } from "react";
+import { useRouter } from "next/navigation";
 import {
   Home,
   User,
@@ -21,8 +21,8 @@ import {
   Send,
   Sun,
   Moon,
-} from 'lucide-react'
-import { useTheme } from 'next-themes'
+} from "lucide-react";
+import { useTheme } from "next-themes";
 import {
   CommandDialog,
   CommandEmpty,
@@ -31,63 +31,72 @@ import {
   CommandItem,
   CommandList,
   CommandSeparator,
-} from '@/components/ui/command'
-import { profile } from '@/src/content/profile'
+} from "@/components/ui/command";
+import { profile } from "@/src/content/profile";
 
 interface CommandPaletteProps {
-  open: boolean
-  onOpenChange: (open: boolean) => void
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 const sections = [
-  { id: 'hero', label: 'Home', icon: Home },
-  { id: 'about', label: 'About', icon: User },
-  { id: 'projects', label: 'Projects', icon: FolderOpen },
-  { id: 'ambitions', label: 'Ambitions', icon: Target },
-  { id: 'skills', label: 'Skills', icon: Code2 },
-  { id: 'interests', label: 'Interests', icon: Heart },
-  { id: 'strengths', label: 'Strengths', icon: Zap },
-  { id: 'knowledge', label: 'Knowledge', icon: BookOpen },
-  { id: 'experience', label: 'Experience', icon: Briefcase },
-  { id: 'education', label: 'Education', icon: GraduationCap },
-  { id: 'languages', label: 'Languages', icon: Globe },
-  { id: 'contact', label: 'Contact', icon: Mail },
-]
+  { id: "hero", label: "Home", icon: Home },
+  { id: "about", label: "About", icon: User },
+  { id: "projects", label: "Projects", icon: FolderOpen },
+  { id: "ambitions", label: "Ambitions", icon: Target },
+  { id: "skills", label: "Skills", icon: Code2 },
+  { id: "interests", label: "Interests", icon: Heart },
+  { id: "strengths", label: "Strengths", icon: Zap },
+  { id: "knowledge", label: "Knowledge", icon: BookOpen },
+  { id: "experience", label: "Experience", icon: Briefcase },
+  { id: "education", label: "Education", icon: GraduationCap },
+  { id: "languages", label: "Languages", icon: Globe },
+  { id: "contact", label: "Contact", icon: Mail },
+];
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
-  const router = useRouter()
-  const { theme, setTheme } = useTheme()
+  const router = useRouter();
+  const { theme, setTheme } = useTheme();
 
-  const scrollToSection = useCallback((id: string) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      onOpenChange(false)
-    }
-  }, [onOpenChange])
+  const scrollToSection = useCallback(
+    (id: string) => {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+        onOpenChange(false);
+      }
+    },
+    [onOpenChange]
+  );
 
-  const openLink = useCallback((url: string) => {
-    window.open(url, '_blank', 'noopener,noreferrer')
-    onOpenChange(false)
-  }, [onOpenChange])
+  const openLink = useCallback(
+    (url: string) => {
+      window.open(url, "_blank", "noopener,noreferrer");
+      onOpenChange(false);
+    },
+    [onOpenChange]
+  );
 
-  const handleNavigate = useCallback((path: string) => {
-    router.push(path)
-    onOpenChange(false)
-  }, [router, onOpenChange])
+  const handleNavigate = useCallback(
+    (path: string) => {
+      router.push(path);
+      onOpenChange(false);
+    },
+    [router, onOpenChange]
+  );
 
   // Handle keyboard shortcut
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault()
-        onOpenChange(!open)
+      if (e.key === "k" && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        onOpenChange(!open);
       }
-    }
+    };
 
-    document.addEventListener('keydown', down)
-    return () => document.removeEventListener('keydown', down)
-  }, [open, onOpenChange])
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
+  }, [open, onOpenChange]);
 
   return (
     <CommandDialog
@@ -95,11 +104,12 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
       onOpenChange={onOpenChange}
       title="Command Palette"
       description="Navigate sections, open links, or change settings"
+      className="max-w-md w-full max-h-[70vh]"
     >
       <CommandInput placeholder="Type a command or search..." />
       <CommandList>
         <CommandEmpty>No results found.</CommandEmpty>
-        
+
         <CommandGroup heading="Navigation">
           {sections.map(({ id, label, icon: Icon }) => (
             <CommandItem
@@ -112,9 +122,9 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             </CommandItem>
           ))}
         </CommandGroup>
-        
+
         <CommandSeparator />
-        
+
         <CommandGroup heading="Quick Actions">
           <CommandItem
             onSelect={() => openLink(profile.links.cv)}
@@ -124,16 +134,16 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             <span>Open CV</span>
           </CommandItem>
           <CommandItem
-            onSelect={() => handleNavigate('/application')}
+            onSelect={() => handleNavigate("/application")}
             className="cursor-pointer"
           >
             <Mail className="mr-2 h-4 w-4" />
             <span>View Cover Letter</span>
           </CommandItem>
         </CommandGroup>
-        
+
         <CommandSeparator />
-        
+
         <CommandGroup heading="Links">
           <CommandItem
             onSelect={() => openLink(profile.links.github)}
@@ -164,26 +174,26 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
             <span>Send Email</span>
           </CommandItem>
         </CommandGroup>
-        
+
         <CommandSeparator />
-        
+
         <CommandGroup heading="Settings">
           <CommandItem
             onSelect={() => {
-              setTheme(theme === 'dark' ? 'light' : 'dark')
-              onOpenChange(false)
+              setTheme(theme === "dark" ? "light" : "dark");
+              onOpenChange(false);
             }}
             className="cursor-pointer"
           >
-            {theme === 'dark' ? (
+            {theme === "dark" ? (
               <Sun className="mr-2 h-4 w-4" />
             ) : (
               <Moon className="mr-2 h-4 w-4" />
             )}
-            <span>Toggle {theme === 'dark' ? 'Light' : 'Dark'} Mode</span>
+            <span>Toggle {theme === "dark" ? "Light" : "Dark"} Mode</span>
           </CommandItem>
         </CommandGroup>
       </CommandList>
     </CommandDialog>
-  )
+  );
 }

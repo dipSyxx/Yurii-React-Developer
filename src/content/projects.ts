@@ -42,6 +42,34 @@ export const projects: Project[] = [
     ],
   },
   {
+    id: "pillmind-medication-platform",
+    title: "PillMind Medication Platform",
+    tagline: "Medication management workspace + marketing site",
+    description:
+      "A full-stack platform that pairs an authenticated patient workspace with analytics and branded marketing pages, built on Next.js 15 App Router for a mobile-first experience.",
+    tags: [
+      "Next.js 15",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS 4",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "Zustand",
+    ],
+    image: "/projects/pillmind.png",
+    links: {
+      repo: "https://github.com/dipSyxx/PillMind",
+      demo: "https://v0-pill-mind-landing-page.vercel.app/",
+    },
+    highlights: [
+      "Patient workspace for schedules, dose logging, snooze flows, and adherence metrics",
+      "Analytics and inventory insights with timezone-aware medication utilities",
+      "Account management hub with NextAuth (credentials, Google, GitHub)",
+      "Marketing site + brandbook for consistent product storytelling",
+    ],
+  },
+  {
     id: "motion-toolkit",
     title: "Motion Toolkit",
     tagline: "Animation primitives for React applications",
