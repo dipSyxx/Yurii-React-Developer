@@ -30,13 +30,6 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Header */}
           <div className="flex items-start justify-between border-b border-border bg-card/95 p-6 backdrop-blur-sm">
             <div className="flex-1 pr-8">
-              <div className="mb-2 flex items-center gap-2">
-                {project.featured && (
-                  <Badge className="bg-gradient-to-r from-gradient-start to-gradient-end text-white border-0">
-                    Featured
-                  </Badge>
-                )}
-              </div>
               <DialogTitle className="text-2xl font-bold">
                 {project.title}
               </DialogTitle>
@@ -57,11 +50,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* Scrollable content */}
           <div className="flex-1 space-y-6 overflow-y-auto p-6">
-            <div className="relative h-56 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
+            <div className="relative w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
               <img
                 src={project.image ?? "/placeholder.jpg"}
                 alt={`${project.title} preview`}
-                className="h-full w-full object-cover"
+                className="w-full h-auto object-contain"
                 loading="lazy"
               />
               <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />

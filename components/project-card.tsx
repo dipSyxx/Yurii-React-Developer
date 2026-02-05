@@ -3,7 +3,7 @@
 import React from "react";
 
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { ExternalLink, Github, ChevronRight, Star } from "lucide-react";
+import { ExternalLink, Github, ChevronRight } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import type { Project } from "@/src/content/projects";
@@ -84,20 +84,6 @@ export function ProjectCard({
       )}
       onClick={() => onViewDetails(project)}
     >
-      {project.featured && (
-        <motion.div
-          className="absolute -top-3 -right-3"
-          initial={{ scale: 0, rotate: -15 }}
-          animate={{ scale: 1, rotate: 0 }}
-          transition={{ delay: index * 0.1 + 0.3, type: "spring", bounce: 0.5 }}
-        >
-          <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-gradient-start to-gradient-end text-white rounded-full shadow-lg">
-            <Star className="h-3 w-3 fill-current" />
-            Featured
-          </span>
-        </motion.div>
-      )}
-
       <div className="space-y-4" style={{ transform: "translateZ(20px)" }}>
         <div className="relative h-40 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
           <img

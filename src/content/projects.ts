@@ -10,7 +10,6 @@ export interface Project {
     demo?: string;
   };
   highlights: string[];
-  featured?: boolean;
 }
 
 export const projects: Project[] = [
@@ -30,7 +29,7 @@ export const projects: Project[] = [
       "Leaflet",
       "Framer Motion",
     ],
-    image: "/placeholder.jpg",
+    image: "/projects/sircular.png",
     links: {
       repo: "https://github.com/dipSyxx/circular-economy-hamar",
       demo: "https://circular-economy-hamar.vercel.app/",
@@ -41,7 +40,6 @@ export const projects: Project[] = [
       "Decision wizard + repair calculator with impact/CO2e metrics",
       "Admin panel for moderation and CRUD across resources",
     ],
-    featured: true,
   },
   {
     id: "motion-toolkit",
@@ -60,7 +58,6 @@ export const projects: Project[] = [
       "Layout animations that handle DOM changes gracefully",
       "Reduced motion support for accessibility",
     ],
-    featured: true,
   },
   {
     id: "dashboard-app",
@@ -78,7 +75,6 @@ export const projects: Project[] = [
       "Export reports to PDF and Excel formats",
       "Role-based access control for team collaboration",
     ],
-    featured: true,
   },
   {
     id: "cli-tool",
