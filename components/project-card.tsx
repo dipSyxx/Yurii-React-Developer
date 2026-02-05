@@ -1,91 +1,95 @@
-'use client'
+"use client";
 
-import React from "react"
+import React from "react";
 
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion'
-import { ExternalLink, Github, ChevronRight, Star } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import type { Project } from '@/src/content/projects'
-import { cn } from '@/lib/utils'
-import { useRef } from 'react'
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { ExternalLink, Github, ChevronRight, Star } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import type { Project } from "@/src/content/projects";
+import { cn } from "@/lib/utils";
+import { useRef } from "react";
 
 interface ProjectCardProps {
-  project: Project
-  onViewDetails: (project: Project) => void
-  index: number
+  project: Project;
+  onViewDetails: (project: Project) => void;
+  index: number;
 }
 
-export function ProjectCard({ project, onViewDetails, index }: ProjectCardProps) {
-  const ref = useRef<HTMLDivElement>(null)
-  const rectRef = useRef<DOMRect | null>(null)
-  
-  const x = useMotionValue(0.5)
-  const y = useMotionValue(0.5)
-  
-  const springConfig = { damping: 20, stiffness: 300 }
-  const smoothX = useSpring(x, springConfig)
-  const smoothY = useSpring(y, springConfig)
-  
-  const rotateX = useTransform(smoothY, [0, 1], [5, -5])
-  const rotateY = useTransform(smoothX, [0, 1], [-5, 5])
+export function ProjectCard({
+  project,
+  onViewDetails,
+  index,
+}: ProjectCardProps) {
+  const ref = useRef<HTMLDivElement>(null);
+  const rectRef = useRef<DOMRect | null>(null);
 
-  const updatePointer = (e: React.MouseEvent) => {
-    const rect = rectRef.current ?? ref.current?.getBoundingClientRect()
-    if (!rect) return
+  const x = useMotionValue(0.5);
+  const y = useMotionValue(0.5);
+
+  const springConfig = { damping: 20, stiffness: 300 };
+  const smoothX = useSpring(x, springConfig);
+  const smoothY = useSpring(y, springConfig);
+
+  const rotateX = useTransform(smoothY, [0, 1], [5, -5]);
+  const rotateY = useTransform(smoothX, [0, 1], [-5, 5]);
+
+  const updatePointer = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = rectRef.current ?? ref.current?.getBoundingClientRect();
+    if (!rect) return;
     if (!rectRef.current) {
-      rectRef.current = rect
+      rectRef.current = rect;
     }
-    const xVal = (e.clientX - rect.left) / rect.width
-    const yVal = (e.clientY - rect.top) / rect.height
-    x.set(xVal)
-    y.set(yVal)
-    e.currentTarget.style.setProperty('--mouse-x', `${xVal * 100}%`)
-    e.currentTarget.style.setProperty('--mouse-y', `${yVal * 100}%`)
-  }
+    const xVal = (e.clientX - rect.left) / rect.width;
+    const yVal = (e.clientY - rect.top) / rect.height;
+    x.set(xVal);
+    y.set(yVal);
+    e.currentTarget.style.setProperty("--mouse-x", `${xVal * 100}%`);
+    e.currentTarget.style.setProperty("--mouse-y", `${yVal * 100}%`);
+  };
 
-  const handleMouseEnter = (e: React.MouseEvent) => {
-    if (!ref.current) return
-    rectRef.current = ref.current.getBoundingClientRect()
-    updatePointer(e)
-  }
+  const handleMouseEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!ref.current) return;
+    rectRef.current = ref.current.getBoundingClientRect();
+    updatePointer(e);
+  };
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    updatePointer(e)
-  }
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    updatePointer(e);
+  };
 
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    rectRef.current = null
-    x.set(0.5)
-    y.set(0.5)
-    e.currentTarget.style.setProperty('--mouse-x', '50%')
-    e.currentTarget.style.setProperty('--mouse-y', '50%')
-  }
+  const handleMouseLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    rectRef.current = null;
+    x.set(0.5);
+    y.set(0.5);
+    e.currentTarget.style.setProperty("--mouse-x", "50%");
+    e.currentTarget.style.setProperty("--mouse-y", "50%");
+  };
 
   return (
     <motion.div
       ref={ref}
-      style={{ 
-        rotateX, 
+      style={{
+        rotateX,
         rotateY,
-        transformStyle: 'preserve-3d',
-        perspective: '1000px',
+        transformStyle: "preserve-3d",
+        perspective: "1000px",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className={cn(
-        'group relative p-6 rounded-2xl bg-card border border-border spotlight cursor-pointer',
-        'hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300'
+        "group relative p-6 rounded-2xl bg-card border border-border spotlight cursor-pointer",
+        "hover:border-primary/30 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300"
       )}
       onClick={() => onViewDetails(project)}
     >
       {project.featured && (
-        <motion.div 
+        <motion.div
           className="absolute -top-3 -right-3"
           initial={{ scale: 0, rotate: -15 }}
           animate={{ scale: 1, rotate: 0 }}
-          transition={{ delay: index * 0.1 + 0.3, type: 'spring', bounce: 0.5 }}
+          transition={{ delay: index * 0.1 + 0.3, type: "spring", bounce: 0.5 }}
         >
           <span className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-medium bg-gradient-to-r from-gradient-start to-gradient-end text-white rounded-full shadow-lg">
             <Star className="h-3 w-3 fill-current" />
@@ -94,9 +98,19 @@ export function ProjectCard({ project, onViewDetails, index }: ProjectCardProps)
         </motion.div>
       )}
 
-      <div className="space-y-4" style={{ transform: 'translateZ(20px)' }}>
+      <div className="space-y-4" style={{ transform: "translateZ(20px)" }}>
+        <div className="relative h-40 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
+          <img
+            src={project.image ?? "/placeholder.jpg"}
+            alt={`${project.title} preview`}
+            className="h-full w-full object-cover"
+            loading="lazy"
+          />
+          <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
+        </div>
+
         <div>
-          <motion.h3 
+          <motion.h3
             className="text-xl font-semibold mb-1 group-hover:gradient-text transition-all"
             whileHover={{ x: 3 }}
             transition={{ duration: 0.2 }}
@@ -119,8 +133,8 @@ export function ProjectCard({ project, onViewDetails, index }: ProjectCardProps)
               transition={{ delay: index * 0.1 + tagIndex * 0.05 + 0.2 }}
               viewport={{ once: true }}
             >
-              <Badge 
-                variant="secondary" 
+              <Badge
+                variant="secondary"
                 className="text-xs hover:bg-primary/10 hover:text-primary transition-colors"
               >
                 {tag}
@@ -177,8 +191,8 @@ export function ProjectCard({ project, onViewDetails, index }: ProjectCardProps)
               </Button>
             )}
           </div>
-          
-          <motion.span 
+
+          <motion.span
             className="text-xs text-muted-foreground flex items-center gap-1 group-hover:text-primary transition-colors"
             whileHover={{ x: 3 }}
           >
@@ -192,18 +206,20 @@ export function ProjectCard({ project, onViewDetails, index }: ProjectCardProps)
           </motion.span>
         </div>
       </div>
-      
+
       {/* Gradient border on hover */}
       <motion.div
         className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"
         style={{
-          background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end))',
-          padding: '1px',
-          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMaskComposite: 'xor',
-          maskComposite: 'exclude',
+          background:
+            "linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end))",
+          padding: "1px",
+          WebkitMask:
+            "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+          WebkitMaskComposite: "xor",
+          maskComposite: "exclude",
         }}
       />
     </motion.div>
-  )
+  );
 }

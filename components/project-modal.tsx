@@ -75,6 +75,16 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
 
               {/* Content */}
               <div className="p-6 space-y-6">
+                <div className="relative h-56 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
+                  <img
+                    src={project.image ?? '/placeholder.jpg'}
+                    alt={`${project.title} preview`}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
+                </div>
+
                 <div>
                   <h3 className="text-sm font-medium text-muted-foreground mb-2">
                     Description

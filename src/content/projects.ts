@@ -1,34 +1,45 @@
 export interface Project {
-  id: string
-  title: string
-  tagline: string
-  description: string
-  tags: string[]
-  image?: string
+  id: string;
+  title: string;
+  tagline: string;
+  description: string;
+  tags: string[];
+  image?: string;
   links: {
-    repo?: string
-    demo?: string
-  }
-  highlights: string[]
-  featured?: boolean
+    repo?: string;
+    demo?: string;
+  };
+  highlights: string[];
+  featured?: boolean;
 }
 
 export const projects: Project[] = [
   {
-    id: "design-system",
-    title: "Component Library",
-    tagline: "A comprehensive design system for modern web apps",
-    description: "Built a scalable design system with 50+ components, complete documentation, and Figma integration. Used by multiple teams across the organization.",
-    tags: ["React", "TypeScript", "Storybook", "Design System"],
+    id: "circular-economy-hamar",
+    title: "SirkulærHamar",
+    tagline: "Circular economy platform for Hamar (Norway)",
+    description:
+      "A Next.js platform that helps residents make sustainable choices with a local actors directory, map, decision wizard, calculators, quizzes, and an admin panel for moderation.",
+    tags: [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind",
+      "Prisma",
+      "Postgres",
+      "Leaflet",
+      "Framer Motion",
+    ],
+    image: "/placeholder.jpg",
     links: {
-      repo: "https://github.com/yourusername/design-system",
-      demo: "https://design-system.example.com",
+      repo: "https://github.com/dipSyxx/circular-economy-hamar",
+      demo: "https://circular-economy-hamar.vercel.app/",
     },
     highlights: [
-      "50+ accessible components following WAI-ARIA guidelines",
-      "Comprehensive documentation with interactive examples",
-      "Dark/light theme support with CSS custom properties",
-      "99% test coverage with unit and visual regression tests",
+      "Actors directory with search, filters, favorites, and detailed profiles",
+      "Interactive map with routing, geolocation, and opening-hours status",
+      "Decision wizard + repair calculator with impact/CO2e metrics",
+      "Admin panel for moderation and CRUD across resources",
     ],
     featured: true,
   },
@@ -36,7 +47,8 @@ export const projects: Project[] = [
     id: "motion-toolkit",
     title: "Motion Toolkit",
     tagline: "Animation primitives for React applications",
-    description: "A collection of animation utilities and components that make it easy to add fluid, physics-based animations to any React project.",
+    description:
+      "A collection of animation utilities and components that make it easy to add fluid, physics-based animations to any React project.",
     tags: ["React", "Framer Motion", "TypeScript", "Animation"],
     links: {
       repo: "https://github.com/yourusername/motion-toolkit",
@@ -54,7 +66,8 @@ export const projects: Project[] = [
     id: "dashboard-app",
     title: "Analytics Dashboard",
     tagline: "Real-time data visualization platform",
-    description: "A comprehensive analytics dashboard with real-time updates, customizable widgets, and collaborative features for data-driven teams.",
+    description:
+      "A comprehensive analytics dashboard with real-time updates, customizable widgets, and collaborative features for data-driven teams.",
     tags: ["Next.js", "PostgreSQL", "WebSocket", "Charts"],
     links: {
       demo: "https://dashboard.example.com",
@@ -71,7 +84,8 @@ export const projects: Project[] = [
     id: "cli-tool",
     title: "Dev CLI",
     tagline: "Command-line tool for project scaffolding",
-    description: "A CLI tool that streamlines project setup with customizable templates, dependency management, and CI/CD configuration.",
+    description:
+      "A CLI tool that streamlines project setup with customizable templates, dependency management, and CI/CD configuration.",
     tags: ["Node.js", "CLI", "TypeScript", "DevTools"],
     links: {
       repo: "https://github.com/yourusername/dev-cli",
@@ -87,7 +101,8 @@ export const projects: Project[] = [
     id: "mobile-app",
     title: "Fitness Tracker",
     tagline: "Cross-platform mobile app for health tracking",
-    description: "A mobile application for tracking workouts, nutrition, and health metrics with social features and personalized recommendations.",
+    description:
+      "A mobile application for tracking workouts, nutrition, and health metrics with social features and personalized recommendations.",
     tags: ["React Native", "Firebase", "Health API", "Mobile"],
     links: {
       demo: "https://apps.apple.com/example",
@@ -103,7 +118,8 @@ export const projects: Project[] = [
     id: "ecommerce-platform",
     title: "E-Commerce Platform",
     tagline: "Modern shopping experience with headless CMS",
-    description: "A performant e-commerce platform built with headless architecture, featuring instant search, personalized recommendations, and seamless checkout.",
+    description:
+      "A performant e-commerce platform built with headless architecture, featuring instant search, personalized recommendations, and seamless checkout.",
     tags: ["Next.js", "Shopify", "Algolia", "E-Commerce"],
     links: {
       demo: "https://shop.example.com",
@@ -115,8 +131,8 @@ export const projects: Project[] = [
       "Optimized checkout flow with 15% conversion improvement",
     ],
   },
-]
+];
 
 export const allTags = Array.from(
   new Set(projects.flatMap((project) => project.tags))
-).sort()
+).sort();
