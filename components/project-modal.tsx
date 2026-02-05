@@ -4,7 +4,12 @@ import { motion } from "framer-motion";
 import { X, ExternalLink, Github, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogContent,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import type { Project } from "@/src/content/projects";
 
 interface ProjectModalProps {
@@ -18,10 +23,10 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
   return (
     <Dialog open={true} onOpenChange={(open) => !open && onClose()}>
       <DialogContent
-        className="max-w-2xl w-full max-h-[min(85vh,40rem)] overflow-hidden rounded-2xl border-border bg-card p-0"
+        className="max-w-4xl w-full max-h-[min(90vh,48rem)] overflow-hidden rounded-2xl border-border bg-card p-0"
         showCloseButton={false}
       >
-        <div className="flex h-full max-h-[min(85vh,40rem)] flex-col">
+        <div className="flex h-full max-h-[min(90vh,48rem)] flex-col">
           {/* Header */}
           <div className="flex items-start justify-between border-b border-border bg-card/95 p-6 backdrop-blur-sm">
             <div className="flex-1 pr-8">
@@ -32,8 +37,12 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </Badge>
                 )}
               </div>
-              <h2 className="text-2xl font-bold">{project.title}</h2>
-              <p className="mt-1 text-muted-foreground">{project.tagline}</p>
+              <DialogTitle className="text-2xl font-bold">
+                {project.title}
+              </DialogTitle>
+              <DialogDescription className="mt-1 text-muted-foreground">
+                {project.tagline}
+              </DialogDescription>
             </div>
             <Button
               variant="ghost"
