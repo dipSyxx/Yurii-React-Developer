@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -24,9 +24,9 @@
   --input: oklch(0.92 0.01 260);
   --ring: oklch(0.55 0.25 270);
   --chart-1: oklch(0.55 0.25 270);
-  --chart-2: oklch(0.65 0.20 300);
-  --chart-3: oklch(0.70 0.18 330);
-  --chart-4: oklch(0.60 0.15 240);
+  --chart-2: oklch(0.65 0.2 300);
+  --chart-3: oklch(0.7 0.18 330);
+  --chart-4: oklch(0.6 0.15 240);
   --chart-5: oklch(0.75 0.12 200);
   --radius: 0.75rem;
   --sidebar: oklch(0.98 0.002 260);
@@ -37,11 +37,11 @@
   --sidebar-accent-foreground: oklch(0.25 0.02 260);
   --sidebar-border: oklch(0.92 0.01 260);
   --sidebar-ring: oklch(0.55 0.25 270);
-  
+
   /* Brand gradient colors */
   --gradient-start: oklch(0.55 0.25 260);
-  --gradient-mid: oklch(0.60 0.25 290);
-  --gradient-end: oklch(0.70 0.20 330);
+  --gradient-mid: oklch(0.6 0.25 290);
+  --gradient-end: oklch(0.7 0.2 330);
 }
 
 .dark {
@@ -51,7 +51,7 @@
   --card-foreground: oklch(0.95 0.01 260);
   --popover: oklch(0.16 0.015 260);
   --popover-foreground: oklch(0.95 0.01 260);
-  --primary: oklch(0.70 0.20 280);
+  --primary: oklch(0.7 0.2 280);
   --primary-foreground: oklch(0.12 0.01 260);
   --secondary: oklch(0.22 0.02 260);
   --secondary-foreground: oklch(0.95 0.01 260);
@@ -59,34 +59,34 @@
   --muted-foreground: oklch(0.65 0.01 260);
   --accent: oklch(0.25 0.04 290);
   --accent-foreground: oklch(0.95 0.01 260);
-  --destructive: oklch(0.45 0.20 25);
+  --destructive: oklch(0.45 0.2 25);
   --destructive-foreground: oklch(0.95 0 0);
   --border: oklch(0.25 0.015 260);
   --input: oklch(0.25 0.015 260);
-  --ring: oklch(0.70 0.20 280);
-  --chart-1: oklch(0.70 0.20 280);
+  --ring: oklch(0.7 0.2 280);
+  --chart-1: oklch(0.7 0.2 280);
   --chart-2: oklch(0.75 0.18 310);
-  --chart-3: oklch(0.80 0.15 340);
+  --chart-3: oklch(0.8 0.15 340);
   --chart-4: oklch(0.65 0.15 250);
-  --chart-5: oklch(0.80 0.10 210);
+  --chart-5: oklch(0.8 0.1 210);
   --sidebar: oklch(0.14 0.012 260);
   --sidebar-foreground: oklch(0.95 0.01 260);
-  --sidebar-primary: oklch(0.70 0.20 280);
+  --sidebar-primary: oklch(0.7 0.2 280);
   --sidebar-primary-foreground: oklch(0.12 0.01 260);
   --sidebar-accent: oklch(0.22 0.02 260);
   --sidebar-accent-foreground: oklch(0.95 0.01 260);
   --sidebar-border: oklch(0.25 0.015 260);
-  --sidebar-ring: oklch(0.70 0.20 280);
-  
+  --sidebar-ring: oklch(0.7 0.2 280);
+
   /* Brand gradient colors */
-  --gradient-start: oklch(0.60 0.22 265);
-  --gradient-mid: oklch(0.70 0.20 295);
-  --gradient-end: oklch(0.80 0.16 335);
+  --gradient-start: oklch(0.6 0.22 265);
+  --gradient-mid: oklch(0.7 0.2 295);
+  --gradient-end: oklch(0.8 0.16 335);
 }
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  --font-sans: "Inter", "Inter Fallback", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "JetBrains Mono Fallback", monospace;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -153,6 +153,25 @@
   }
 }
 
+/* Lenis smooth scroll helpers */
+@layer base {
+  html.lenis {
+    height: auto;
+  }
+  .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  }
+  .lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+  }
+  .lenis.lenis-stopped {
+    overflow: hidden;
+  }
+  .lenis.lenis-scrolling iframe {
+    pointer-events: none;
+  }
+}
+
 /* Custom scrollbar */
 @layer base {
   ::-webkit-scrollbar {
@@ -179,21 +198,32 @@
 
 /* Grid background pattern */
 .bg-grid {
-  background-image: 
-    linear-gradient(to right, oklch(0.5 0 0 / 0.03) 1px, transparent 1px),
+  background-image: linear-gradient(
+      to right,
+      oklch(0.5 0 0 / 0.03) 1px,
+      transparent 1px
+    ),
     linear-gradient(to bottom, oklch(0.5 0 0 / 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
 }
 
 .dark .bg-grid {
-  background-image: 
-    linear-gradient(to right, oklch(0.8 0 0 / 0.03) 1px, transparent 1px),
+  background-image: linear-gradient(
+      to right,
+      oklch(0.8 0 0 / 0.03) 1px,
+      transparent 1px
+    ),
     linear-gradient(to bottom, oklch(0.8 0 0 / 0.03) 1px, transparent 1px);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-mid),
+    var(--gradient-end)
+  );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -204,11 +234,16 @@
   position: relative;
 }
 .gradient-border::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   padding: 1px;
-  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-mid), var(--gradient-end));
+  background: linear-gradient(
+    135deg,
+    var(--gradient-start),
+    var(--gradient-mid),
+    var(--gradient-end)
+  );
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
@@ -223,7 +258,7 @@
   overflow: hidden;
 }
 .spotlight::before {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: radial-gradient(
@@ -245,7 +280,7 @@
   overflow: hidden;
 }
 .shimmer::after {
-  content: '';
+  content: "";
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -268,7 +303,8 @@
   animation: glow-pulse 2s ease-in-out infinite;
 }
 @keyframes glow-pulse {
-  0%, 100% {
+  0%,
+  100% {
     box-shadow: 0 0 20px 5px oklch(0.6 0.2 280 / 0.2);
   }
   50% {
@@ -281,7 +317,8 @@
   animation: float 6s ease-in-out infinite;
 }
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0px);
   }
   50% {
@@ -336,7 +373,8 @@
 
 /* Scale bounce */
 @keyframes scale-bounce {
-  0%, 100% {
+  0%,
+  100% {
     transform: scale(1);
   }
   50% {

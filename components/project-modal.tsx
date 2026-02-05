@@ -1,168 +1,143 @@
-'use client'
+"use client";
 
-import { motion, AnimatePresence } from 'framer-motion'
-import { X, ExternalLink, Github, Check } from 'lucide-react'
-import { Badge } from '@/components/ui/badge'
-import { Button } from '@/components/ui/button'
-import type { Project } from '@/src/content/projects'
-import { useEffect } from 'react'
+import { motion } from "framer-motion";
+import { X, ExternalLink, Github, Check } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+import type { Project } from "@/src/content/projects";
 
 interface ProjectModalProps {
-  project: Project | null
-  onClose: () => void
+  project: Project | null;
+  onClose: () => void;
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
-  useEffect(() => {
-    const handleEsc = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose()
-    }
-    if (project) {
-      document.addEventListener('keydown', handleEsc)
-      document.body.style.overflow = 'hidden'
-    }
-    return () => {
-      document.removeEventListener('keydown', handleEsc)
-      document.body.style.overflow = ''
-    }
-  }, [project, onClose])
+  if (!project) return null;
 
   return (
-    <AnimatePresence>
-      {project && (
-        <>
-          {/* Backdrop */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50"
-          />
-
-          {/* Modal */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', duration: 0.5 }}
-            className="fixed inset-4 sm:inset-8 md:inset-12 lg:inset-20 z-50 flex items-center justify-center pointer-events-none"
-          >
-            <div className="w-full max-w-2xl max-h-full overflow-auto rounded-2xl bg-card border border-border shadow-2xl pointer-events-auto">
-              {/* Header */}
-              <div className="sticky top-0 flex items-start justify-between p-6 bg-card/95 backdrop-blur-sm border-b border-border">
-                <div className="flex-1 pr-8">
-                  <div className="flex items-center gap-2 mb-2">
-                    {project.featured && (
-                      <Badge className="bg-gradient-to-r from-gradient-start to-gradient-end text-white border-0">
-                        Featured
-                      </Badge>
-                    )}
-                  </div>
-                  <h2 className="text-2xl font-bold">{project.title}</h2>
-                  <p className="text-muted-foreground mt-1">{project.tagline}</p>
-                </div>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={onClose}
-                  className="shrink-0"
-                  aria-label="Close modal"
-                >
-                  <X className="h-5 w-5" />
-                </Button>
+    <Dialog open={true} onOpenChange={(open) => !open && onClose()}>
+      <DialogContent
+        className="max-w-2xl w-full max-h-[min(85vh,40rem)] overflow-hidden rounded-2xl border-border bg-card p-0"
+        showCloseButton={false}
+      >
+        <div className="flex h-full max-h-[min(85vh,40rem)] flex-col">
+          {/* Header */}
+          <div className="flex items-start justify-between border-b border-border bg-card/95 p-6 backdrop-blur-sm">
+            <div className="flex-1 pr-8">
+              <div className="mb-2 flex items-center gap-2">
+                {project.featured && (
+                  <Badge className="bg-gradient-to-r from-gradient-start to-gradient-end text-white border-0">
+                    Featured
+                  </Badge>
+                )}
               </div>
+              <h2 className="text-2xl font-bold">{project.title}</h2>
+              <p className="mt-1 text-muted-foreground">{project.tagline}</p>
+            </div>
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={onClose}
+              className="shrink-0"
+              aria-label="Close modal"
+            >
+              <X className="h-5 w-5" />
+            </Button>
+          </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-6">
-                <div className="relative h-56 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
-                  <img
-                    src={project.image ?? '/placeholder.jpg'}
-                    alt={`${project.title} preview`}
-                    className="h-full w-full object-cover"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
-                </div>
+          {/* Scrollable content */}
+          <div className="flex-1 space-y-6 overflow-y-auto p-6">
+            <div className="relative h-56 w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
+              <img
+                src={project.image ?? "/placeholder.jpg"}
+                alt={`${project.title} preview`}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 ring-1 ring-inset ring-white/5" />
+            </div>
 
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-2">
-                    Description
-                  </h3>
-                  <p className="text-foreground leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
+            <div>
+              <h3 className="mb-2 text-sm font-medium text-muted-foreground">
+                Description
+              </h3>
+              <p className="text-foreground leading-relaxed">
+                {project.description}
+              </p>
+            </div>
 
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Key Highlights
-                  </h3>
-                  <ul className="space-y-2">
-                    {project.highlights.map((highlight, i) => (
-                      <motion.li
-                        key={i}
-                        initial={{ opacity: 0, x: -10 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: i * 0.1 }}
-                        className="flex items-start gap-3"
-                      >
-                        <span className="shrink-0 mt-0.5 h-5 w-5 rounded-full bg-primary/10 flex items-center justify-center">
-                          <Check className="h-3 w-3 text-primary" />
-                        </span>
-                        <span className="text-sm text-muted-foreground">
-                          {highlight}
-                        </span>
-                      </motion.li>
-                    ))}
-                  </ul>
-                </div>
+            <div>
+              <h3 className="mb-3 text-sm font-medium text-muted-foreground">
+                Key Highlights
+              </h3>
+              <ul className="space-y-2">
+                {project.highlights.map((highlight, i) => (
+                  <motion.li
+                    key={i}
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="flex items-start gap-3"
+                  >
+                    <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/10">
+                      <Check className="h-3 w-3 text-primary" />
+                    </span>
+                    <span className="text-sm text-muted-foreground">
+                      {highlight}
+                    </span>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
 
-                <div>
-                  <h3 className="text-sm font-medium text-muted-foreground mb-3">
-                    Technologies
-                  </h3>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map((tag) => (
-                      <Badge key={tag} variant="secondary">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Actions */}
-                <div className="flex gap-3 pt-4 border-t border-border">
-                  {project.links.demo && (
-                    <Button asChild className="flex-1">
-                      <a
-                        href={project.links.demo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="mr-2 h-4 w-4" />
-                        View Demo
-                      </a>
-                    </Button>
-                  )}
-                  {project.links.repo && (
-                    <Button variant="outline" asChild className="flex-1 bg-transparent">
-                      <a
-                        href={project.links.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <Github className="mr-2 h-4 w-4" />
-                        Source Code
-                      </a>
-                    </Button>
-                  )}
-                </div>
+            <div>
+              <h3 className="mb-3 text-sm font-medium text-muted-foreground">
+                Technologies
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <Badge key={tag} variant="secondary">
+                    {tag}
+                  </Badge>
+                ))}
               </div>
             </div>
-          </motion.div>
-        </>
-      )}
-    </AnimatePresence>
-  )
+          </div>
+
+          {/* Footer */}
+          <div className="flex items-center gap-3 border-t border-border bg-card/95 p-6 backdrop-blur-sm">
+            {project.links.demo && (
+              <Button asChild className="flex-1">
+                <a
+                  href={project.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <ExternalLink className="mr-2 h-4 w-4" />
+                  View Demo
+                </a>
+              </Button>
+            )}
+            {project.links.repo && (
+              <Button
+                variant="outline"
+                asChild
+                className="flex-1 bg-transparent"
+              >
+                <a
+                  href={project.links.repo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="mr-2 h-4 w-4" />
+                  Source Code
+                </a>
+              </Button>
+            )}
+          </div>
+        </div>
+      </DialogContent>
+    </Dialog>
+  );
 }
