@@ -157,7 +157,7 @@ export const profile = {
     {
       company: "UDEX",
       website: "https://udex.app/",
-      role: "(Low-Code/Code) Full-stack Developer",
+      role: "(Code/LowCode/NoCode) Full-stack (Frontend-focused) Developer",
       logo: "/udex/udex.jpg",
       type: "Full-time - Remote",
       period: "Aug 2023 - present",
