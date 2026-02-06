@@ -1,19 +1,19 @@
 export const profile = {
   name: "Yurii",
-  title: "React Front-End Developer",
+  title: "React & Next.js Frontend Developer",
   tagline:
-    "I build modern, user-friendly React/Next.js interfaces with strong performance, clean architecture, and polished micro-interactions.",
+    "I build fast, stable, and accessible React/Next.js interfaces that lift conversion and user trust.",
   email: "linetsky.yura@gmail.com",
   phone: "+47 968 08 211",
   location: "Stange, Norway",
 
   about: {
     intro:
-      "I'm a young and ambitious React Front-End developer. I was born in Ukraine and currently live in Norway.",
+      "Frontend Developer with 2+ years of experience building React/Next.js interfaces with a focus on performance and UX.",
     description:
-      "I've been self-educating and working commercially for 2+ years, building interactive web interfaces with React and Next.js. I care about UI quality, browser compatibility, responsiveness, and delivering a smooth user experience.",
+      "Optimized data-heavy flows (500k+ rows) with query tuning and caching, reducing server load and speeding up bulk edits.",
     background:
-      "I focus on reusable components, reliable state management, API integration, and performance optimization (lazy loading, caching strategies, rendering optimizations) to improve UX and Lighthouse results.",
+      "My strengths are performance optimization (rendering, caching, query efficiency), developer experience (clean APIs, predictable state, reusable utilities), and building design systems/components that scale across pages.",
   },
 
   ambitions: [
@@ -33,11 +33,27 @@ export const profile = {
       "HTML",
       "CSS / Sass",
       "TailwindCSS",
-      "Mantine / shadcn/ui",
-      "Redux / Zustand",
+      "Mantine / shadcn",
     ],
-    backend: ["PostgreSQL", "Prisma", "REST APIs"],
-    tools: ["Git", "VS Code"],
+    stateData: [
+      "Redux / Zustand",
+      "TanStack Query",
+      "React Hook Form",
+      "Zod",
+      "REST APIs",
+    ],
+    backend: ["PostgreSQL", "Prisma"],
+    auth: [
+      "NextAuth",
+      "Neon Auth",
+      "JWT / Session Cookies",
+      "OAuth2 / OIDC (Google, GitHub)",
+      "Password Hashing (bcrypt)",
+      "Email Verification / Password Reset",
+      "Protected Routes / Middleware Guards",
+      "CSRF basics",
+    ],
+    tools: ["Git", "pnpm", "VS Code", "Vercel", "Postman", "Figma"],
     design: [
       "Responsive UI",
       "Cross-browser compatibility",

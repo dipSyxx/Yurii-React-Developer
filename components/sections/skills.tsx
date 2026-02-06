@@ -2,14 +2,16 @@
 
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { Code2, Server, Wrench, Palette, ChevronRight } from 'lucide-react'
+import { Code2, Server, Wrench, Palette, ChevronRight, ShieldCheck, Database } from 'lucide-react'
 import { profile } from '@/src/content/profile'
 import { SectionWrapper } from '@/components/section-wrapper'
 import { TiltCard } from '@/components/tilt-card'
 
 const skillCategories = [
   { key: 'frontend', label: 'Frontend', icon: Code2, color: 'from-blue-500 to-cyan-500' },
+  { key: 'stateData', label: 'State & Data', icon: Database, color: 'from-violet-500 to-purple-500' },
   { key: 'backend', label: 'Backend', icon: Server, color: 'from-green-500 to-emerald-500' },
+  { key: 'auth', label: 'Auth', icon: ShieldCheck, color: 'from-indigo-500 to-blue-500' },
   { key: 'tools', label: 'Tools', icon: Wrench, color: 'from-orange-500 to-amber-500' },
   { key: 'design', label: 'Design', icon: Palette, color: 'from-pink-500 to-rose-500' },
 ] as const
@@ -26,7 +28,7 @@ export function SkillsSection() {
       title="Skills & Technologies"
       subtitle="Technologies and tools I use to bring ideas to life."
     >
-      <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div ref={ref} className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {skillCategories.map(({ key, label, icon: Icon, color }, categoryIndex) => (
           <motion.div
             key={key}

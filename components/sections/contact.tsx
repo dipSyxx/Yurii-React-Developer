@@ -183,16 +183,6 @@ export function ContactSection() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="pt-12 border-t border-border space-y-4"
         >
-          <p className="text-sm text-muted-foreground flex items-center justify-center gap-2">
-            Designed and built with
-            <motion.span
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 1, repeat: Infinity }}
-            >
-              <Heart className="h-4 w-4 text-red-500 fill-red-500" />
-            </motion.span>
-            using Next.js, Tailwind CSS, and Framer Motion.
-          </p>
           <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} {profile.name}. All rights reserved.
           </p>
