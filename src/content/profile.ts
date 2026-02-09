@@ -1,4 +1,4 @@
-export const profile = {
+﻿export const profile = {
   name: "Yurii",
   title: "React & Next.js Frontend Developer",
   tagline:
@@ -11,7 +11,7 @@ export const profile = {
     intro:
       "Frontend Developer with 2+ years of experience building React/Next.js interfaces with a focus on performance and UX.",
     description:
-      "Optimized data-heavy flows (500k+ rows) with query tuning and caching, reducing server load and speeding up bulk edits.",
+      "I build modern, responsive interfaces with a focus on performance, accessibility, clean architecture, and a reliable user experience.",
     background:
       "My strengths are performance optimization (rendering, caching, query efficiency), developer experience (clean APIs, predictable state, reusable utilities), and building design systems/components that scale across pages.",
   },
@@ -214,3 +214,4 @@ export const profile = {
 } as const;
 
 export type Profile = typeof profile;
+
