@@ -42,7 +42,15 @@ export const profile = {
       "Zod",
       "REST APIs",
     ],
-    backend: ["PostgreSQL", "Prisma"],
+    backend: [
+      "PostgreSQL",
+      "Prisma",
+      "Supabase",
+      "Firebase",
+      "Node.js",
+      "Express",
+      "Sanity",
+    ],
     auth: [
       "NextAuth",
       "Neon Auth",

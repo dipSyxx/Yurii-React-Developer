@@ -2,30 +2,31 @@
   en: {
     salutation: "Dear Hiring Manager,",
     paragraphs: [
-      "My name is Yurii Linetskyi, and I am a frontend developer with 2+ years of experience building React/Next.js interfaces focused on performance and UX, currently living in Norway. I would like to express my interest in opportunities where I can contribute to building modern, user-friendly web applications with React and Next.js.",
-      "I have 2+ years of commercial experience and have been continuously improving my skills through self-education and real project work. In my daily work I focus on creating interactive interfaces, ensuring cross-browser compatibility, and delivering responsive design that works smoothly across devices.",
-      "At UDEX (remote, full-time), I build reusable components, integrate APIs, and work with state management (Redux/Zustand) to keep applications fast and reliable. I also actively optimize performance by improving rendering, implementing lazy loading, and applying other techniques that reduce load time and improve Lighthouse results.",
-      "My main goal as a frontend developer is to create intuitive interfaces, scalable components, and high-performance experiences, while collaborating effectively with backend systems and teams. I am motivated by learning, clean development practices, and delivering quality that users feel.",
-      "I would be glad to discuss how my experience and mindset could fit your team. Thank you for your time and consideration.",
+      "My name is Yurii Linetskyi. I am a frontend developer based in Norway with 2+ years of commercial experience building React and Next.js products with a strong focus on performance, UX, and reliability.",
+      "At UDEX (remote, full-time), I build and maintain reusable UI components, integrate APIs, and manage predictable data flows with Redux/Zustand and modern frontend tooling.",
+      "I recently optimized data-heavy flows using query tuning and caching strategies, which reduced server load and made bulk editing noticeably faster for end users.",
+      "I am looking to contribute to a product team where clean architecture, measurable performance, and high UI quality matter. I am available to discuss how my experience can support your current application goals.",
     ],
     closing: "Best regards,",
     name: "Yurii Linetskyi",
-    contactLine: "Stange, Norway • linetsky.yura@gmail.com • +47 968 08 211",
+    contactLine:
+      "Stange/Hamar, Norway • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx • https://www.linkedin.com/in/yurii-linetskyi-10b857254/",
   },
 
   no: {
     salutation: "Kjære ansettelsesansvarlig,",
     paragraphs: [
-      "Jeg heter Yurii Linetskyi og er frontend-utvikler med 2+ års erfaring i å bygge React/Next.js-grensesnitt med fokus på ytelse og UX, bosatt i Norge. Jeg ønsker å uttrykke min interesse for muligheter der jeg kan bidra til å bygge moderne og brukervennlige webapplikasjoner med React og Next.js.",
-      "Jeg har over 2 års kommersiell erfaring og utvikler meg kontinuerlig gjennom selvstudie og arbeid i reelle prosjekter. I hverdagen fokuserer jeg på å lage interaktive grensesnitt, sikre nettleserkompatibilitet og levere responsivt design som fungerer godt på ulike enheter.",
-      "Hos UDEX (remote, fulltid) bygger jeg gjenbrukbare komponenter, integrerer API-er og jobber med state management (Redux/Zustand) for å gjøre applikasjoner raske og stabile. Jeg optimaliserer også ytelse gjennom forbedring av rendering, lazy loading og andre tiltak som reduserer lastetid og forbedrer Lighthouse-resultater.",
-      "Mitt hovedmål som frontend-utvikler er å lage intuitive grensesnitt, skalerbare komponenter og høy ytelse, samtidig som jeg samarbeider godt med backend-systemer og team. Jeg er motivert av læring, ryddige utviklingsprinsipper og å levere kvalitet som brukerne merker.",
-      "Jeg tar gjerne en prat om hvordan min erfaring og arbeidsmåte kan passe inn hos dere. Takk for at dere vurderer min søknad.",
+      "Jeg heter Yurii Linetskyi og er frontend-utvikler bosatt i Norge. Jeg har over 2 års kommersiell erfaring med å bygge React- og Next.js-løsninger med fokus på ytelse, UX og stabilitet.",
+      "Hos UDEX (remote, fulltid) bygger og vedlikeholder jeg gjenbrukbare UI-komponenter, integrerer API-er og jobber med forutsigbar state/dataflyt med Redux/Zustand og moderne frontend-verktøy.",
+      "Jeg har nylig optimalisert data-tunge flyter gjennom query tuning og caching, noe som reduserte serverbelastning og gjorde bulk-redigering raskere for brukerne.",
+      "Jeg ønsker å bidra i et produktteam der ren arkitektur, målbar ytelse og høy UI-kvalitet er viktig. Jeg tar gjerne en prat om hvordan erfaringen min kan støtte deres mål for applikasjonen.",
     ],
     closing: "Med vennlig hilsen,",
     name: "Yurii Linetskyi",
-    contactLine: "Stange, Norge • linetsky.yura@gmail.com • +47 968 08 211",
+    contactLine:
+      "Stange/Hamar, Norge • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx • https://www.linkedin.com/in/yurii-linetskyi-10b857254/",
   },
 } as const;
 
 export type Language = keyof typeof coverLetter;
+
