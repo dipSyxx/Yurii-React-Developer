@@ -27,6 +27,7 @@
   skills: {
     frontend: [
       "React",
+      "React Native",
       "Next.js",
       "TypeScript",
       "JavaScript",
@@ -214,4 +215,3 @@
 } as const;
 
 export type Profile = typeof profile;
-
