@@ -125,8 +125,39 @@ export const projects: Project[] = [
       "REST API for products, categories, carts, orders, and users",
     ],
   },
+  {
+    id: "norsk-coach-ai",
+    title: "NorskCoach AI",
+    tagline: "AI Norwegian tutor with chat, vocabulary SRS, and quiz analytics",
+    description:
+      "A full-stack Norwegian learning app that combines guided AI chat, automatic correction, vocabulary extraction, spaced-repetition review, and quiz-based learning analytics for measurable progress.",
+    tags: [
+      "Next.js 16",
+      "React 19",
+      "TypeScript",
+      "Tailwind CSS",
+      "Prisma",
+      "PostgreSQL",
+      "NextAuth",
+      "AI SDK",
+      "OpenAI",
+      "SWR",
+      "shadcn/ui",
+    ],
+    image: "/projects/norskcoach.png",
+    links: {
+      repo: "https://github.com/dipSyxx/norsk-coach-ai",
+      demo: "https://norsk-coach-ai.vercel.app/",
+    },
+    highlights: [
+      "Personalized chat tutor with configurable level, learning goal, coach style, and explanation language",
+      "Automatic vocabulary and grammar extraction from conversations with deduplication and taxonomy",
+      "Dedicated Ordquiz flow with SRS scheduling, per-answer review updates, and requeue logic for weak words",
+      "Learning analytics dashboard with streaks, completion rate, known/unknown ratio, and retention-oriented metrics",
+    ],
+  },
 ];
 
 export const allTags = Array.from(
-  new Set(projects.flatMap((project) => project.tags))
+  new Set(projects.flatMap((project) => project.tags)),
 ).sort();
