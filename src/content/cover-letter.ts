@@ -2,29 +2,31 @@
   en: {
     salutation: "Dear Hiring Manager,",
     paragraphs: [
-      "My name is Yurii Linetskyi, and I am a frontend developer based in Norway with 2+ years of commercial experience building modern web applications with React and Next.js.",
-      "I focus on creating user-friendly interfaces that are responsive, accessible, and reliable. In my daily work, I prioritize clean architecture, reusable components, and maintainable code.",
-      "My core stack includes React, Next.js, TypeScript, Tailwind CSS, Redux/Zustand, and REST API integration. I work closely with backend systems and continuously optimize performance, loading speed, and overall user experience.",
-      "I am looking to join a product-focused team where I can contribute to high-quality application development and keep growing as an engineer. I would be glad to discuss how my experience can support your product goals.",
+      "My name is Yurii Linetskyi, and I am a frontend-focused full-stack developer based in Stange, Norway, with nearly three years of commercial experience building SaaS products, internal tools, mobile apps, and production-ready applications.",
+      "My core stack includes React, Next.js, TypeScript, JavaScript, React Native, and Expo. I also work with Node.js, PostgreSQL, Prisma, Supabase, Neon, REST APIs, authentication systems, Stripe workflows, and AI-powered features.",
+      "In my ongoing project-based remote role with UDEX, I build and maintain commercial SaaS products across frontend and backend workflows. I create dashboards, reusable UI components, complex forms, role-based user flows, and investigate production issues to improve performance, reliability, and maintainability.",
+      "My selected projects show the same range in practice: mobile applications, web administration panels, authenticated dashboards, analytics, notifications, and data models built for real product workflows.",
+      "I am looking to contribute to a product-focused team where I can take ownership of features from requirements and architecture through implementation, testing, production debugging, and ongoing support. I would be glad to discuss how my experience can support your product goals.",
     ],
     closing: "Best regards,",
     name: "Yurii Linetskyi",
     contactLine:
-      "Stange/Hamar, Norway • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx • https://www.linkedin.com/in/yurii-linetskyi-10b857254/",
+      "Stange, Norway • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx",
   },
 
   no: {
     salutation: "Kjære ansettelsesansvarlig,",
     paragraphs: [
-      "Jeg heter Yurii Linetskyi og er frontend-utvikler bosatt i Norge, med over 2 års kommersiell erfaring i å bygge moderne webapplikasjoner med React og Next.js.",
-      "Jeg fokuserer på å lage brukervennlige grensesnitt som er responsive, tilgjengelige og stabile. I det daglige arbeidet prioriterer jeg ren arkitektur, gjenbrukbare komponenter og vedlikeholdbar kode.",
-      "Min kjerne-stack inkluderer React, Next.js, TypeScript, Tailwind CSS, Redux/Zustand og integrasjon av REST API-er. Jeg samarbeider godt med backend-systemer og jobber kontinuerlig med ytelse, lastetid og total brukeropplevelse.",
-      "Jeg ønsker å bli en del av et produktfokusert team der jeg kan bidra til applikasjoner av høy kvalitet og fortsette å utvikle meg som utvikler. Jeg tar gjerne en prat om hvordan min erfaring kan støtte deres produktmål.",
+      "Jeg heter Yurii Linetskyi og er en frontend-fokusert fullstack-utvikler bosatt i Stange, Norge, med nesten tre års kommersiell erfaring med å bygge SaaS-produkter, interne verktøy, mobilapper og produksjonsklare applikasjoner.",
+      "Min kjerne-stack inkluderer React, Next.js, TypeScript, JavaScript, React Native og Expo. Jeg jobber også med Node.js, PostgreSQL, Prisma, Supabase, Neon, REST API-er, autentiseringssystemer, Stripe-flyter og AI-drevne funksjoner.",
+      "I min pågående prosjektbaserte fjernrolle hos UDEX bygger og vedlikeholder jeg kommersielle SaaS-produkter på tvers av frontend- og backend-arbeidsflyter. Jeg lager dashboards, gjenbrukbare UI-komponenter, komplekse skjemaer, rollebaserte brukerflyter og undersøker produksjonsfeil for å forbedre ytelse, stabilitet og vedlikeholdbarhet.",
+      "Mine utvalgte prosjekter viser den samme bredden i praksis: mobilapplikasjoner, webbaserte administrasjonspaneler, autentiserte dashboards, analyse, varsler og datamodeller bygget for reelle produktflyter.",
+      "Jeg ønsker å bidra i et produktfokusert team der jeg kan ta eierskap til funksjoner fra krav og arkitektur til implementering, testing, produksjonsdebugging og videre support. Jeg tar gjerne en prat om hvordan min erfaring kan støtte deres produktmål.",
     ],
     closing: "Med vennlig hilsen,",
     name: "Yurii Linetskyi",
     contactLine:
-      "Stange/Hamar, Norge • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx • https://www.linkedin.com/in/yurii-linetskyi-10b857254/",
+      "Stange, Norge • linetsky.yura@gmail.com • +47 968 08 211 • https://github.com/dipSyxx",
   },
 } as const;
 

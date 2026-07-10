@@ -74,12 +74,12 @@ export default function ApplicationPage() {
           >
             {/* Letter Header */}
             <div className="mb-8 pb-8 border-b border-border">
-              <div className="flex items-start justify-between mb-6">
-                <div>
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between mb-6">
+                <div className="min-w-0">
                   <h1 className="text-2xl font-bold gradient-text">{content.name}</h1>
                   <p className="text-muted-foreground">{profile.title}</p>
                 </div>
-                <div className="text-right text-sm text-muted-foreground space-y-1">
+                <div className="min-w-0 text-left sm:text-right text-sm text-muted-foreground space-y-1 break-words">
                   <p>{content.contactLine}</p>
                   <p>{profile.links.linkedin}</p>
                 </div>
