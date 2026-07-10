@@ -213,7 +213,7 @@
     github: "https://github.com/dipSyxx",
     linkedin: "https://www.linkedin.com/in/yurii-linetskyi-10b857254/",
     telegram: "https://t.me/XdipsyX",
-    cv: "/cv/cv.pdf",
+    cv: "/cv/Yurii_Linetskyi_CV_A4.pdf",
   },
 
   seo: {
