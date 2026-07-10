@@ -14,6 +14,36 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    id: "kantinapp",
+    title: "KantinApp",
+    tagline: "Multi-school canteen platform for students and administrators",
+    description:
+      "KantinApp is a full-stack, multi-school canteen platform with a mobile application for students, a web-based administration panel, and a public website. Students can view weekly menus, check allergens, save favourite dishes, vote, indicate demand, receive push notifications, and submit feedback. Canteen teams can manage dishes, menus, users, availability, feedback, and analytics to improve planning and reduce food waste.",
+    tags: [
+      "React Native",
+      "Expo",
+      "Next.js 15",
+      "TypeScript",
+      "React Query",
+      "Prisma",
+      "PostgreSQL",
+      "Neon",
+      "Tailwind CSS",
+      "Vercel",
+    ],
+    image: "/projects/kantinapp.png",
+    links: {
+      repo: "https://github.com/dipSyxx/KantinApp",
+      demo: "https://kantinapp.app/",
+    },
+    highlights: [
+      "Published as a native mobile application for both iOS and Android.",
+      "Expo and React Native mobile app with offline-ready menu and dish data.",
+      "Next.js administration platform with role-based access, analytics, and multi-school support.",
+      "PostgreSQL and Prisma data model for schools, menus, dishes, votes, favourites, demand, tips, and notifications.",
+    ],
+  },
+  {
     id: "circular-economy-hamar",
     title: "SirkulærHamar",
     tagline: "Circular economy platform for Hamar (Norway)",
