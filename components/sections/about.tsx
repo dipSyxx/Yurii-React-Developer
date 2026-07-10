@@ -4,9 +4,9 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import { MapPin, Mail, Phone, Briefcase } from "lucide-react";
 import { profile } from "@/src/content/profile";
+import { projects } from "@/src/content/projects";
 import { SectionWrapper } from "@/components/section-wrapper";
 import { TiltCard } from "@/components/tilt-card";
-import { AnimatedCounter } from "@/components/animated-counter";
 
 export function AboutSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -112,12 +112,12 @@ export function AboutSection() {
             </div>
           </TiltCard>
 
-          {/* Quick stats with animated counters */}
+          {/* Quick stats */}
           <div className="grid grid-cols-2 gap-3">
             {[
-              { value: 2, suffix: "+", label: "Years Exp." },
-              { value: 15, suffix: "+", label: "Projects" },
-            ].map(({ value, suffix, label }, index) => (
+              { value: "2023", label: "Commercial since" },
+              { value: String(projects.length), label: "Selected projects" },
+            ].map(({ value, label }, index) => (
               <motion.div
                 key={label}
                 initial={{ opacity: 0, y: 20 }}
@@ -126,9 +126,7 @@ export function AboutSection() {
                 whileHover={{ scale: 1.05, y: -2 }}
                 className="p-4 rounded-xl bg-secondary/50 text-center cursor-default border border-transparent hover:border-primary/20 transition-all"
               >
-                <div className="text-2xl font-bold gradient-text">
-                  <AnimatedCounter value={value} suffix={suffix} />
-                </div>
+                <div className="text-2xl font-bold gradient-text">{value}</div>
                 <div className="text-xs text-muted-foreground mt-1">
                   {label}
                 </div>
