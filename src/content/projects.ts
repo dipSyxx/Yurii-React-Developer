@@ -5,6 +5,7 @@ export interface Project {
   description: string;
   type: string;
   role: string;
+  status: "Pilot · In development" | "Completed";
   featured: boolean;
   tags: string[];
   image?: string;
@@ -28,16 +29,17 @@ export const projects: Project[] = [
     title: "KantinApp",
     tagline: "Multi-school canteen platform for students and administrators",
     description:
-      "KantinApp is an independent, full-stack multi-school canteen product with a mobile application for students, a web administration platform, and a public website. Students can view weekly menus, check allergens, save favourite dishes, vote, indicate demand, receive push notifications, and submit feedback. Canteen teams can manage daily workflows and analytics to improve planning and reduce food waste. The product is currently running a pilot at Hamar Katedralskole.",
+      "KantinApp is an independent, full-stack multi-school canteen product with a mobile application for students, a web administration platform, and a public website. Students can view weekly menus, check allergens, save favourite dishes, vote, indicate demand, receive push notifications, and submit feedback. Canteen teams can manage daily workflows and analytics to improve planning and reduce food waste. The product is in active development and currently running as a pilot at Hamar katedralskole.",
     type: "Mobile app · Administration platform",
     role: "Founder & Full-stack Developer",
+    status: "Pilot · In development",
     featured: true,
     tags: [
       "React Native",
       "Expo",
       "Next.js 15",
       "TypeScript",
-      "React Query",
+      "TanStack Query",
       "Prisma",
       "PostgreSQL",
       "Neon",
@@ -46,12 +48,11 @@ export const projects: Project[] = [
     ],
     image: "/projects/kantinapp.webp",
     links: {
-      repo: "https://github.com/dipSyxx/KantinApp",
       demo: "https://kantinapp.app/",
     },
     highlights: [
       "Published as a native mobile application for both iOS and Android.",
-      "Currently running a pilot at Hamar Katedralskole.",
+      "Pilot at Hamar katedralskole with active product development.",
       "Expo and React Native mobile app with offline-ready menu and dish data.",
       "Next.js administration platform with role-based access, analytics, and multi-school support.",
       "PostgreSQL and Prisma data model for schools, menus, dishes, votes, favourites, demand, tips, and notifications.",
@@ -72,25 +73,26 @@ export const projects: Project[] = [
         "Treat offline-ready menu and dish data as part of the core mobile experience.",
       ],
       result:
-        "The native iOS and Android application and multi-school administration platform are now running a pilot at Hamar Katedralskole.",
+        "The native iOS and Android application and multi-school administration platform are running as a pilot at Hamar katedralskole while the product remains in active development.",
     },
   },
   {
     id: "circular-economy-hamar",
-    title: "SirkulærHamar",
+    title: "Sirkulær Norge",
     tagline: "Circular economy platform for Hamar (Norway)",
     description:
-      "A Next.js platform that helps residents make sustainable choices with a local actors directory, map, decision wizard, calculators, quizzes, and an admin panel for moderation.",
+      "Sirkulær Norge is a Next.js platform that helps residents make sustainable choices with a directory of local businesses and services, a map, decision wizard, calculators, quizzes, and an admin panel for moderation.",
     type: "Public platform · Administration",
     role: "Full-stack Developer",
+    status: "Completed",
     featured: true,
     tags: [
       "Next.js",
       "React",
       "TypeScript",
-      "Tailwind",
+      "Tailwind CSS",
       "Prisma",
-      "Postgres",
+      "PostgreSQL",
       "Leaflet",
       "Framer Motion",
     ],
@@ -100,7 +102,7 @@ export const projects: Project[] = [
       demo: "https://circular-economy-hamar.vercel.app/",
     },
     highlights: [
-      "Actors directory with search, filters, favorites, and detailed profiles",
+      "Directory of local businesses and services with search, filters, favorites, and detailed profiles",
       "Interactive map with routing, geolocation, and opening-hours status",
       "Decision wizard + repair calculator with impact/CO2e metrics",
       "Admin panel for moderation and CRUD across resources",
@@ -111,7 +113,7 @@ export const projects: Project[] = [
       role:
         "I designed and built the full-stack product surface, including discovery tools, interactive guidance, mapping, and the moderation workflow.",
       challenges: [
-        "Present local actors through search, filters, profiles, and map-based discovery.",
+        "Present local businesses and services through search, filters, profiles, and map-based discovery.",
         "Turn broad sustainability guidance into useful decisions through calculators, quizzes, and a guided wizard.",
         "Give administrators a manageable way to moderate and maintain the underlying resources.",
       ],
@@ -121,7 +123,7 @@ export const projects: Project[] = [
         "Keep public discovery and administrative maintenance in one typed Next.js and Prisma application.",
       ],
       result:
-        "The delivered platform brings local actors, guidance tools, impact information, and content administration into one coherent circular-economy product.",
+        "The completed platform brings local businesses and services, guidance tools, impact information, and content administration into one coherent circular-economy product.",
     },
   },
   {
@@ -132,6 +134,7 @@ export const projects: Project[] = [
       "A full-stack platform that pairs an authenticated patient workspace with analytics and branded marketing pages, built on Next.js 15 App Router for a mobile-first experience.",
     type: "SaaS workspace · Marketing site",
     role: "Full-stack Developer",
+    status: "Completed",
     featured: true,
     tags: [
       "Next.js 15",
@@ -170,7 +173,7 @@ export const projects: Project[] = [
         "Design the core experience around immediate daily actions, with deeper adherence and inventory detail available when needed.",
       ],
       result:
-        "The delivered platform combines schedules, dose logging, snooze flows, adherence analytics, inventory insight, account management, and a consistent public brand experience.",
+        "The completed platform combines schedules, dose logging, snooze flows, adherence analytics, inventory insight, account management, and a consistent public brand experience.",
     },
   },
   {
@@ -181,6 +184,7 @@ export const projects: Project[] = [
       "A full-featured festival hub for event discovery, ticket reservations, QR code check-ins, and admin operations for a week-long tech and creativity festival.",
     type: "Event platform · Operations",
     role: "Full-stack Developer",
+    status: "Completed",
     featured: true,
     tags: [
       "Next.js 16",
@@ -230,6 +234,7 @@ export const projects: Project[] = [
       "A learning-focused full-stack remake of Oda's grocery experience with a Next.js 16 App Router frontend and a Prisma-backed API for catalog, carts, orders, and users.",
     type: "Commerce study",
     role: "Full-stack Developer",
+    status: "Completed",
     featured: true,
     tags: [
       "Next.js 16",
@@ -279,6 +284,7 @@ export const projects: Project[] = [
       "A full-stack Norwegian learning app that combines guided AI chat, automatic correction, vocabulary extraction, spaced-repetition review, and quiz-based learning analytics for measurable progress.",
     type: "AI learning product",
     role: "Full-stack Developer",
+    status: "Completed",
     featured: true,
     tags: [
       "Next.js 16",

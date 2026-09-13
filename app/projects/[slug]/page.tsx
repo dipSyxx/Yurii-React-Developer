@@ -50,17 +50,26 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
   if (!project?.featured || !project.caseStudy) return {}
 
   const canonicalPath = `/projects/${project.id}`
+  const title = `${project.title} case study | ${profile.name}`
+  const socialImage = project.image ?? profile.seo.ogImage
+  const socialImageAlt = `${project.title} product interface`
 
   return {
-    title: `${project.title} case study | ${profile.name}`,
+    title,
     description: project.tagline,
     alternates: { canonical: canonicalPath },
     openGraph: {
       type: 'article',
-      title: `${project.title} case study | ${profile.name}`,
+      title,
       description: project.tagline,
       url: canonicalPath,
-      images: [{ url: project.image ?? profile.seo.ogImage, alt: `${project.title} product interface` }],
+      images: [{ url: socialImage, alt: socialImageAlt }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: project.tagline,
+      images: [{ url: socialImage, alt: socialImageAlt }],
     },
   }
 }
@@ -101,7 +110,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div><dt>Role</dt><dd>{project.role}</dd></div>
                 <div><dt>Product</dt><dd>{project.type}</dd></div>
                 <div><dt>Core stack</dt><dd>{project.tags.slice(0, 4).join(' · ')}</dd></div>
-                <div><dt>Status</dt><dd className="project-status"><i aria-hidden="true" /> Delivered</dd></div>
+                <div>
+                  <dt>Status</dt>
+                  <dd className="project-status" data-status={project.status === 'Completed' ? 'completed' : 'active'}>
+                    <i aria-hidden="true" /> {project.status}
+                  </dd>
+                </div>
               </dl>
             </header>
 

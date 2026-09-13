@@ -2248,6 +2248,7 @@ body {
 .case-study-meta dd { margin: 0; }
 .project-status { display: inline-flex; align-items: center; gap: 0.35rem; }
 .project-status i { width: 0.42rem; height: 0.42rem; border-radius: 50%; background: #18a96b; }
+.project-status[data-status='active'] i { background: var(--accent); }
 
 .case-study-figure { margin: clamp(2rem, 5vw, 4rem) 0 0; }
 

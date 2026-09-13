@@ -125,7 +125,7 @@ The site has no primary form or modal workflow. Contact uses direct email, CV, a
 
 ### Iconography
 
-Lucide icons provide a consistent 13–24px recognition layer for project domains, capability categories, contact actions, and stack navigation. The technology inventory contains 41 CV and product-work entries, each wired to an original brand mark with a quiet typographic fallback if a remote asset fails. Important actions keep visible text; every icon-only link and button has an accessible name.
+Lucide icons provide a consistent 13–24px recognition layer for project domains, capability categories, contact actions, and stack navigation. The technology inventory contains 46 CV and product-work entries, each wired to an original brand mark with a quiet typographic fallback if a remote asset fails. Important actions keep visible text; every icon-only link and button has an accessible name.
 
 ### Motion
 
@@ -133,7 +133,7 @@ Motion is masked, directional, and brief: the nameplate reveals upward, the port
 
 ### Content and data visualization
 
-Copy is concise, factual, technical, and written in active voice. All six projects retain equal access to detailed case routes. Claims come from the existing profile and project content; missing metrics are omitted.
+Copy is concise, factual, technical, and written in active voice. All six projects retain equal access to detailed case routes, with no separate More work tier. KantinApp is identified as a pilot in active development; the other five projects are identified as completed. Claims come from the existing profile and project content; missing metrics are omitted.
 
 ## Do's and Don'ts
 

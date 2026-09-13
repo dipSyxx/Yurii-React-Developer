@@ -89,7 +89,7 @@ export function ProjectReel() {
             </div>
 
             <div className="ref-project-copy">
-              <p>{project.type}</p>
+              <p>{project.type} · {project.status}</p>
               <h3>{project.title}</h3>
               <p>{project.tagline}</p>
               <ul aria-label={`${project.title} technologies`}>

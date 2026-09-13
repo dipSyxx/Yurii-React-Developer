@@ -24,13 +24,15 @@ export const stackGroups = [
       'Mantine',
       'React Native',
       'Expo',
+      'Framer Motion',
+      'Leaflet',
     ],
   },
   {
     id: 'backend',
     label: 'Backend & auth',
     description: 'Application services, authentication, integrations, and reliable API boundaries.',
-    technologies: ['Node.js', 'Express', 'REST APIs', 'NextAuth', 'OAuth / OIDC', 'JWT / sessions', 'Stripe', 'AI integrations'],
+    technologies: ['Node.js', 'Express', 'REST APIs', 'NextAuth', 'OAuth / OIDC', 'JWT / sessions', 'Stripe', 'AI integrations', 'AI SDK', 'OpenAI'],
   },
   {
     id: 'data',
@@ -42,7 +44,7 @@ export const stackGroups = [
     id: 'state',
     label: 'State & forms',
     description: 'Predictable client and server state, validation, and form workflows with clear failure states.',
-    technologies: ['TanStack Query', 'Redux', 'Zustand', 'React Hook Form', 'Zod'],
+    technologies: ['TanStack Query', 'SWR', 'Redux', 'Zustand', 'React Hook Form', 'Zod'],
   },
   {
     id: 'delivery',

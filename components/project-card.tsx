@@ -64,7 +64,9 @@ export function ProjectCard({ project, index, total }: ProjectCardProps) {
           </div>
           <div>
             <dt>Status</dt>
-            <dd className="project-status"><i aria-hidden="true" /> Delivered</dd>
+            <dd className="project-status" data-status={project.status === 'Completed' ? 'completed' : 'active'}>
+              <i aria-hidden="true" /> {project.status}
+            </dd>
           </div>
         </dl>
 

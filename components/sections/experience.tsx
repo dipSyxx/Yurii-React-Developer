@@ -44,7 +44,7 @@ export function ExperienceSection() {
           <aside className="ref-career-aside">
             <section aria-labelledby="education-heading">
               <p><GraduationCap size={15} aria-hidden="true" /> EDUCATION/</p>
-              <h3 id="education-heading">Current study</h3>
+              <h3 id="education-heading">Education</h3>
               {profile.education.map((item) => (
                 <article key={`${item.school}-${item.degree}`}>
                   <strong>{item.degree}</strong>
