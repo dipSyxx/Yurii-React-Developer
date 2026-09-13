@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useCallback } from "react";
-import { useRouter } from "next/navigation";
 import {
   Home,
   User,
@@ -55,7 +54,6 @@ const sections = [
 ];
 
 export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
-  const router = useRouter();
   const { theme, setTheme } = useTheme();
 
   const scrollToSection = useCallback(
@@ -75,14 +73,6 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
       onOpenChange(false);
     },
     [onOpenChange]
-  );
-
-  const handleNavigate = useCallback(
-    (path: string) => {
-      router.push(path);
-      onOpenChange(false);
-    },
-    [router, onOpenChange]
   );
 
   // Handle keyboard shortcut
@@ -132,13 +122,6 @@ export function CommandPalette({ open, onOpenChange }: CommandPaletteProps) {
           >
             <FileText className="mr-2 h-4 w-4" />
             <span>Open CV</span>
-          </CommandItem>
-          <CommandItem
-            onSelect={() => handleNavigate("/application")}
-            className="cursor-pointer"
-          >
-            <Mail className="mr-2 h-4 w-4" />
-            <span>View Cover Letter</span>
           </CommandItem>
         </CommandGroup>
 

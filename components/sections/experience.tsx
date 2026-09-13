@@ -1,86 +1,65 @@
-'use client'
-
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
-import { Briefcase, ExternalLink } from 'lucide-react'
-import { profile } from '@/src/content/profile'
+import { ArrowUpRight, BriefcaseBusiness, GraduationCap, Languages } from 'lucide-react'
 import { SectionWrapper } from '@/components/section-wrapper'
+import { profile } from '@/src/content/profile'
 
 export function ExperienceSection() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-
   return (
     <SectionWrapper
       id="experience"
-      className="bg-muted/30"
-      title="Experience"
-      subtitle="Where I've worked and what I delivered."
+      index="03"
+      label="Experience"
+      title="High-volume product work that holds up."
+      subtitle="Three years of commercial delivery across frontend, backend workflows, data-heavy interfaces, and production performance."
     >
-      <div ref={ref} className="space-y-6 max-w-4xl mx-auto">
-        {profile.experience.map((item, index) => (
-          <motion.div
-            key={`${item.company}-${item.role}`}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: 0.5,
-              delay: index * 0.1,
-              ease: [0.215, 0.61, 0.355, 1],
-            }}
-            className="p-6 rounded-2xl bg-card border border-border spotlight"
-            onMouseMove={(e) => {
-              const rect = e.currentTarget.getBoundingClientRect()
-              const x = ((e.clientX - rect.left) / rect.width) * 100
-              const y = ((e.clientY - rect.top) / rect.height) * 100
-              e.currentTarget.style.setProperty('--mouse-x', `${x}%`)
-              e.currentTarget.style.setProperty('--mouse-y', `${y}%`)
-            }}
-          >
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div className="flex items-start gap-4">
-                {item.logo && (
-                  <div className="h-12 w-12 rounded-xl bg-secondary/60 border border-border flex items-center justify-center overflow-hidden">
-                    <img
-                      src={item.logo}
-                      alt={`${item.company} logo`}
-                      className="h-full w-full object-contain"
-                    />
-                  </div>
-                )}
-                <div>
-                  {item.website ? (
-                    <a
-                      href={item.website}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {item.company}
-                      <ExternalLink className="h-3.5 w-3.5" />
-                    </a>
-                  ) : (
-                    <p className="text-sm text-muted-foreground">{item.company}</p>
-                  )}
-                  <h3 className="text-lg font-semibold">{item.role}</h3>
-                  <p className="text-xs text-muted-foreground">{item.type}</p>
-                </div>
-              </div>
-              <div className="inline-flex items-center gap-2 text-xs text-muted-foreground">
-                <Briefcase className="h-4 w-4 text-primary" />
-                <span>{item.period}</span>
-              </div>
-            </div>
-            <ul className="mt-4 space-y-2">
-              {item.highlights.map((highlight) => (
-                <li key={highlight} className="flex gap-2 text-sm text-muted-foreground">
-                  <span className="mt-2 h-1.5 w-1.5 rounded-full bg-gradient-to-r from-gradient-start to-gradient-end" />
-                  <span>{highlight}</span>
-                </li>
+      <div className="ref-career-window" data-reveal="viewport">
+        <div className="ref-window-bar" aria-hidden="true">
+          <span className="ref-window-dots"><i /><i /><i /></span>
+          <span>CAREER.LOG</span>
+          <span>1 POSITION</span>
+        </div>
+
+        <div className="ref-career-layout">
+          <div className="ref-career-primary">
+            {profile.experience.map((item) => (
+              <article key={`${item.company}-${item.role}`}>
+                <header>
+                  <p><BriefcaseBusiness size={14} aria-hidden="true" /> {item.type}</p>
+                  <span>{item.period}</span>
+                </header>
+                <h3>{item.role}</h3>
+                <a href={item.website} target="_blank" rel="noreferrer">{item.company} <ArrowUpRight size={14} aria-hidden="true" /></a>
+                <ol>
+                  {item.highlights.map((highlight, index) => (
+                    <li key={highlight}>
+                      <span>{String(index + 1).padStart(2, '0')}</span>
+                      <p>{highlight}</p>
+                      <i aria-hidden="true"><ArrowUpRight size={14} /></i>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            ))}
+          </div>
+
+          <aside className="ref-career-aside">
+            <section aria-labelledby="education-heading">
+              <p><GraduationCap size={15} aria-hidden="true" /> EDUCATION/</p>
+              <h3 id="education-heading">Current study</h3>
+              {profile.education.map((item) => (
+                <article key={`${item.school}-${item.degree}`}>
+                  <strong>{item.degree}</strong>
+                  <span>{item.school}</span>
+                  <span>{item.period}</span>
+                </article>
               ))}
-            </ul>
-          </motion.div>
-        ))}
+            </section>
+            <section aria-labelledby="languages-heading">
+              <p><Languages size={15} aria-hidden="true" /> LANGUAGES/</p>
+              <h3 id="languages-heading">Working languages</h3>
+              <ul>{profile.languages.map((language) => <li key={language.name}><span>{language.name}</span><i>{language.level}</i></li>)}</ul>
+            </section>
+          </aside>
+        </div>
       </div>
     </SectionWrapper>
   )

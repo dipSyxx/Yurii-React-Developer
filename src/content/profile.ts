@@ -1,20 +1,28 @@
 ﻿export const profile = {
   name: "Yurii Linetskyi",
   title: "Frontend-focused Full-stack Developer",
+  siteUrl: "https://yurii-react-developer.vercel.app",
   tagline:
-    "I build scalable SaaS, mobile, and AI-powered products with React, Next.js, TypeScript, and reliable backend integrations.",
+    "Frontend-focused full-stack developer with 3 years of commercial experience delivering SaaS products and data-heavy workflows.",
   email: "linetsky.yura@gmail.com",
   phone: "+47 968 08 211",
   location: "Stange, Norway",
 
   about: {
     intro:
-      "Frontend-focused full-stack developer based in Stange, Norway, with nearly three years of commercial experience building SaaS products, internal tools, and production-ready applications.",
+      "I am a frontend-focused full-stack developer based in Stange, Norway, with 3 years of commercial experience delivering SaaS products and data-heavy workflows.",
     description:
-      "My core stack includes React, Next.js, TypeScript, JavaScript, React Native, and Expo. I also work with Node.js, PostgreSQL, Prisma, Supabase, Neon, REST APIs, authentication systems, Stripe, and AI integrations.",
+      "My work spans React and Next.js interfaces, mobile applications, backend APIs, PostgreSQL, authentication, Stripe, AI integrations, and high-volume workflows processing up to 300k records.",
     background:
-      "I take ownership of features from requirements and architecture through implementation, testing, production debugging, and ongoing support. I focus on maintainable code, accessible interfaces, performance, and reliable user experiences.",
+      "I take ownership from requirements and design through implementation, testing, delivery, and ongoing support. I focus on maintainable solutions, responsive data-heavy interfaces, and performance improvements that reduce latency and system load.",
   },
+
+  outsideIde: [
+    "Training",
+    "Travelling",
+    "Learning",
+    "Exploring cities and cultures",
+  ],
 
   ambitions: [
     "Create user-friendly, intuitive interfaces with React and Next.js",
@@ -36,6 +44,7 @@
       "CSS / Sass",
       "Tailwind CSS",
       "shadcn/ui",
+      "AG Grid",
       "Mantine",
     ],
     stateData: [
@@ -54,6 +63,8 @@
       "Supabase",
       "Neon",
       "Firebase",
+      "IndexedDB",
+      "Dexie",
     ],
     auth: [
       "NextAuth",
@@ -71,6 +82,7 @@
       "Postman",
       "Figma",
       "Stripe",
+      "AI integrations",
       "Bubble",
     ],
     design: [
@@ -109,28 +121,19 @@
 
   strengths: [
     {
-      title: "Attention to detail",
+      title: "Product ownership",
       description:
-        "Careful about UI polish, spacing, consistency, and edge cases",
+        "Own features end to end from requirements and design through implementation, testing, and delivery",
     },
     {
-      title: "Performance mindset",
+      title: "Performance engineering",
       description:
-        "I actively optimize load time, rendering, and overall responsiveness",
+        "Diagnose bottlenecks across UI, data flow, and backend to improve scale, latency, and reliability",
     },
     {
-      title: "Ownership",
+      title: "Reliable delivery",
       description:
-        "I like to take responsibility for features end-to-end and ship stable results",
-    },
-    {
-      title: "Adaptability",
-      description: "Quick to learn new tools and methods to improve efficiency",
-    },
-    {
-      title: "Communication",
-      description:
-        "Clear, structured communication around tasks and technical decisions",
+        "Turn evolving business requirements into maintainable, production-ready solutions",
     },
   ],
 
@@ -178,35 +181,34 @@
       website: "https://udex.app/",
       role: "Frontend-focused Full-stack Developer",
       logo: "/udex/udex.jpg",
-      type: "Project-based · Remote",
-      period: "Aug 2023 - Present",
+      type: "Remote · Project-based",
+      period: "Aug 2023 - Jul 2026",
       highlights: [
-        "Build and maintain commercial SaaS products across frontend and backend workflows.",
-        "Create dashboards, reusable UI components, complex forms, and role-based user flows.",
-        "Integrate REST APIs and work with data models, authentication, Stripe workflows, and AI-powered features.",
-        "Investigate production issues and improve application performance, reliability, and maintainability.",
-        "Take ownership of features from requirements and implementation through testing and ongoing support.",
+        "Re-architected a bulk data workflow handling 150k–300k records by moving intermediate staging and transformation to IndexedDB and Dexie, reducing server and database load and processing latency.",
+        "Optimized high-volume AG Grid interfaces with row virtualization, batched operations, and client-side persistence to keep bulk editing and validation responsive.",
+        "Delivered production frontend and full-stack features using React, Next.js, and TypeScript.",
+        "Built dashboards, complex forms, role-based API flows, authentication, Stripe, and AI integrations while debugging production issues with a remote team.",
       ],
     },
   ],
 
   education: [
     {
-      school: "Uman Lyceum No. 1",
-      degree: "Complete secondary education",
-      period: "2012-2023",
+      school: "Hamar katedralskole",
+      degree: "Information Technology · Vocational programme",
+      period: "2025 - Present · Expected 2029",
     },
     {
-      school: "Hamar katedralskole",
-      degree: "Information Technology",
-      period: "2025-2029",
+      school: "Uman Lyceum No. 1",
+      degree: "Secondary Education",
+      period: "2012 - 2023",
     },
   ],
 
   languages: [
     { name: "Ukrainian", level: "Native" },
-    { name: "English", level: "Intermediate" },
     { name: "Norwegian", level: "Intermediate" },
+    { name: "English", level: "Intermediate" },
   ],
 
   links: {
@@ -219,8 +221,8 @@
   seo: {
     title: "Yurii Linetskyi | Frontend-focused Full-stack Developer",
     description:
-      "Frontend-focused full-stack developer based in Norway, building SaaS, mobile, and AI-powered products with React, Next.js, TypeScript, React Native, Node.js, and PostgreSQL.",
-    ogImage: "/og.png",
+      "Frontend-focused full-stack developer in Norway with 3 years of commercial experience in React, Next.js, TypeScript, SaaS products, and data-heavy workflows.",
+    ogImage: "/opengraph-image.png",
   },
 } as const;
 

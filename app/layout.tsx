@@ -1,46 +1,64 @@
 import React from "react"
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Archivo_Black, IBM_Plex_Mono, Instrument_Sans } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { profile } from '@/src/content/profile'
 import './globals.css'
+import './kinetic.css'
 
-const inter = Inter({ 
+const instrumentSans = Instrument_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-instrument-sans',
+  display: 'swap',
 })
 
-const jetbrainsMono = JetBrains_Mono({ 
+const ibmPlexMono = IBM_Plex_Mono({
   subsets: ['latin'],
-  variable: '--font-jetbrains-mono',
+  weight: ['400', '500'],
+  variable: '--font-ibm-plex-mono',
+  display: 'swap',
+})
+
+const archivoBlack = Archivo_Black({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-archivo-black',
+  display: 'swap',
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL(profile.siteUrl),
   title: profile.seo.title,
   description: profile.seo.description,
-  generator: 'Next.js',
-  keywords: ['portfolio', 'frontend developer', 'react', 'next.js', 'typescript'],
+  alternates: {
+    canonical: '/',
+  },
+  keywords: [
+    'frontend developer',
+    'full-stack developer',
+    'React',
+    'Next.js',
+    'TypeScript',
+    'Norway',
+  ],
   authors: [{ name: profile.name }],
+  creator: profile.name,
   openGraph: {
     type: 'website',
     locale: 'en_US',
     title: profile.seo.title,
     description: profile.seo.description,
     siteName: `${profile.name} Portfolio`,
-    images: [
-      {
-        url: profile.seo.ogImage,
-        width: 1200,
-        height: 630,
-        alt: profile.seo.title,
-      },
-    ],
+    url: '/',
   },
   twitter: {
     card: 'summary_large_image',
     title: profile.seo.title,
     description: profile.seo.description,
-    images: [profile.seo.ogImage],
+  },
+  robots: {
+    index: true,
+    follow: true,
   },
   icons: {
     icon: [
@@ -54,8 +72,8 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: '(prefers-color-scheme: light)', color: '#f8f8fc' },
-    { media: '(prefers-color-scheme: dark)', color: '#1a1a22' },
+    { media: '(prefers-color-scheme: light)', color: '#F6F7F3' },
+    { media: '(prefers-color-scheme: dark)', color: '#0B0F16' },
   ],
   width: 'device-width',
   initialScale: 1,
@@ -68,13 +86,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+      <body className={`${instrumentSans.variable} ${ibmPlexMono.variable} ${archivoBlack.variable}`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <a className="skip-link" href="#main-content">Skip to content</a>
           {children}
         </ThemeProvider>
       </body>

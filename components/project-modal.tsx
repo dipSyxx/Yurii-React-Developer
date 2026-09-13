@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { X, ExternalLink, Github, Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -51,9 +52,11 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           {/* Scrollable content */}
           <div className="flex-1 space-y-6 overflow-y-auto p-6">
             <div className="relative w-full overflow-hidden rounded-xl border border-border/60 bg-muted/50">
-              <img
+              <Image
                 src={project.image ?? "/placeholder.jpg"}
                 alt={`${project.title} preview`}
+                width={1920}
+                height={1080}
                 className="w-full h-auto object-contain"
                 loading="lazy"
               />
