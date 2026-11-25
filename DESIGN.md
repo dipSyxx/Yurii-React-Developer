@@ -113,7 +113,7 @@ Interactive elements use cobalt sweeps, near-black inversion, directional icon m
 
 ### Buttons and actions
 
-The hero has one near-black primary action and one outlined CV action; both use a directional cobalt wipe and offset press depth. Project cards use a full-width case link plus compact live and source controls. External actions keep text labels where space permits and have accessible names when icon-only.
+The hero has one near-black primary action and one outlined CV action; both use a directional cobalt wipe and offset press depth. Project cards use a full-width case link plus compact live and source controls. The KantinApp case study also links directly to its app store listings. External actions keep text labels where space permits and have accessible names when icon-only.
 
 ### Navigation and data display
 
@@ -133,7 +133,7 @@ Motion is masked, directional, and brief: the nameplate reveals upward, the port
 
 ### Content and data visualization
 
-Copy is concise, factual, technical, and written in active voice. All six projects retain equal access to detailed case routes, with no separate More work tier. KantinApp is identified as a pilot in active development; the other five projects are identified as completed. Claims come from the existing profile and project content; missing metrics are omitted.
+Copy is concise, factual, technical, and written in active voice. All six projects retain equal access to detailed case routes, with no separate More work tier. KantinApp is in active pilot at Hamar Katedralskole, with published iOS and Android apps and ongoing development. The other five projects are marked as completed. Claims come from the existing profile and project content; missing metrics are omitted.
 
 ## Do's and Don'ts
 

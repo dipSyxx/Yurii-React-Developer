@@ -5,13 +5,14 @@ export interface Project {
   description: string;
   type: string;
   role: string;
-  status: "Pilot · In development" | "Completed";
+  status: "Active pilot" | "Completed";
   featured: boolean;
   tags: string[];
   image?: string;
   links: {
     repo?: string;
     demo?: string;
+    stores?: { label: string; href: string }[];
   };
   highlights: string[];
   caseStudy?: {
@@ -27,53 +28,66 @@ export const projects: Project[] = [
   {
     id: "kantinapp",
     title: "KantinApp",
-    tagline: "Multi-school canteen platform for students and administrators",
+    tagline: "Multi-tenant school canteen platform with released iOS and Android apps",
     description:
-      "KantinApp is an independent, full-stack multi-school canteen product with a mobile application for students, a web administration platform, and a public website. Students can view weekly menus, check allergens, save favourite dishes, vote, indicate demand, receive push notifications, and submit feedback. Canteen teams can manage daily workflows and analytics to improve planning and reduce food waste. The product is in active development and currently running as a pilot at Hamar katedralskole.",
-    type: "Mobile app · Administration platform",
-    role: "Founder & Full-stack Developer",
-    status: "Pilot · In development",
+      "Students use KantinApp to check weekly menus and allergens, save favourites, vote, and give feedback. Canteen staff use a Next.js administration platform to publish menus, review demand, and plan portions. The app and administration platform share a backend that scopes data and workflows to each school.",
+    type: "Mobile app · Web administration",
+    role: "Founder & Full-Stack Developer",
+    status: "Active pilot",
     featured: true,
     tags: [
       "React Native",
       "Expo",
       "Next.js 15",
       "TypeScript",
+      "React",
       "TanStack Query",
       "Prisma",
       "PostgreSQL",
       "Neon",
+      "Auth.js",
+      "Microsoft Entra ID",
+      "OpenAI API",
       "Tailwind CSS",
       "Vercel",
+      "Expo EAS",
+      "Expo Push API",
+      "Vercel Blob",
     ],
     image: "/projects/kantinapp.webp",
     links: {
       demo: "https://kantinapp.app/",
+      stores: [
+        { label: "App Store", href: "https://apps.apple.com/no/app/kantinapp/id6769730596" },
+        { label: "Google Play", href: "https://play.google.com/store/apps/details?id=no.innlandetfylke.kantinapp" },
+      ],
     },
     highlights: [
-      "Published as a native mobile application for both iOS and Android.",
-      "Pilot at Hamar katedralskole with active product development.",
-      "Expo and React Native mobile app with offline-ready menu and dish data.",
-      "Next.js administration platform with role-based access, analytics, and multi-school support.",
-      "PostgreSQL and Prisma data model for schools, menus, dishes, votes, favourites, demand, tips, and notifications.",
+      "Available on the App Store and Google Play.",
+      "School-scoped administration with Microsoft Entra ID and role-based access.",
+      "Offline access to cached menus and dishes, with sync for supported actions.",
+      "Demand analytics and portion planning for canteen staff.",
+      "Push delivery tracking and retries for scheduled notifications.",
     ],
     caseStudy: {
       problem:
-        "Students need a simple way to understand the weekly menu and signal demand, while canteen teams need operational tools that turn those signals into better planning.",
+        "Students need to know what the canteen will serve before lunch. Staff need to see which meals students plan to buy and how many portions they served in the past.",
       role:
-        "As founder and full-stack developer, I own product architecture and delivery across the student mobile application, web administration platform, and the data and API layers connecting both surfaces.",
+        "As founder and full-stack developer, I designed and built the mobile app, web administration platform, and shared backend. I maintain automated tests, database migrations, and production release workflows.",
       challenges: [
-        "Keep menu and dish information useful when the mobile connection is unreliable.",
-        "Support role-based workflows and data separation across multiple schools.",
-        "Connect votes, favourites, demand, feedback, and notifications to practical canteen planning.",
+        "Keep previously loaded menus and dishes available when the mobile connection drops.",
+        "Give students and staff different permissions and keep each school’s records and administrative workflows separate.",
+        "Turn intended purchases and serving records into information staff can use to plan portions.",
       ],
       decisions: [
-        "Use React Native and Expo for the student application and Next.js for the administration platform.",
-        "Model schools, menus, dishes, votes, demand, and notifications relationally with Prisma and PostgreSQL.",
-        "Treat offline-ready menu and dish data as part of the core mobile experience.",
+        "Use React Native and Expo for iOS and Android, with Next.js for web administration and shared APIs. Cache menu and dish data locally and sync supported actions when the connection returns.",
+        "Use Auth.js with Microsoft Entra ID for single sign-on. Enforce role and school scope on the backend and model school data with Prisma and PostgreSQL.",
+        "Use demand and serving analytics to support portion planning. Let staff review AI metadata suggestions before applying them and explicitly request background image generation.",
+        "Send Expo push notifications through background jobs, track provider delivery receipts, and retry eligible failures.",
+        "Monitor operational health, limit the data collected by product analytics, and run retention and account lifecycle jobs.",
       ],
       result:
-        "The native iOS and Android application and multi-school administration platform are running as a pilot at Hamar katedralskole while the product remains in active development.",
+        "KantinApp is in active pilot at Hamar Katedralskole. The mobile app is available on the App Store and Google Play, and product development continues.",
     },
   },
   {

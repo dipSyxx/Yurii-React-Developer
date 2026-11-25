@@ -21,7 +21,7 @@ export function HeroSection() {
             NORWAY
           </p>
 
-          <h1 id="hero-title" className="ref-display-title" aria-label="Yurii Linetskyi, Frontend-focused Full-stack Developer">
+          <h1 id="hero-title" className="ref-display-title" aria-label={`${profile.name}, ${profile.title}`}>
             <span className="ref-display-line" data-copy="YURII">YURII</span>
             <span className="ref-display-line" data-copy="LINETSKYI">LINETSKYI</span>
           </h1>

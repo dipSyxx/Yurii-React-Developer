@@ -51,24 +51,27 @@ export async function generateMetadata({ params }: ProjectPageProps): Promise<Me
 
   const canonicalPath = `/projects/${project.id}`
   const title = `${project.title} case study | ${profile.name}`
+  const description = project.status === 'Active pilot'
+    ? `${project.tagline}. ${project.status}.`
+    : project.tagline
   const socialImage = project.image ?? profile.seo.ogImage
   const socialImageAlt = `${project.title} product interface`
 
   return {
     title,
-    description: project.tagline,
+    description,
     alternates: { canonical: canonicalPath },
     openGraph: {
       type: 'article',
       title,
-      description: project.tagline,
+      description,
       url: canonicalPath,
       images: [{ url: socialImage, alt: socialImageAlt }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
-      description: project.tagline,
+      description,
       images: [{ url: socialImage, alt: socialImageAlt }],
     },
   }
@@ -166,6 +169,11 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                       View live product <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   ) : null}
+                  {project.links.stores?.map(({ label, href }) => (
+                    <a key={href} className="plain-control" href={href} target="_blank" rel="noreferrer">
+                      {label} <ArrowUpRight size={14} aria-hidden="true" />
+                    </a>
+                  ))}
                   {project.links.repo ? (
                     <a className="plain-control" href={project.links.repo} target="_blank" rel="noreferrer">
                       <Github size={15} aria-hidden="true" /> View source <ArrowUpRight size={14} aria-hidden="true" />

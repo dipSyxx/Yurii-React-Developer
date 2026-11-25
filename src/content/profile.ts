@@ -1,20 +1,23 @@
-﻿export const profile = {
-  name: "Yurii Linetskyi",
-  title: "Frontend-focused Full-stack Developer",
+﻿const name = "Yurii Linetskyi";
+const title = "Frontend-Focused Full-Stack Developer";
+
+export const profile = {
+  name,
+  title,
   siteUrl: "https://yurii-react-developer.vercel.app",
   tagline:
-    "Frontend-focused full-stack developer with 3 years of commercial experience delivering SaaS products and data-heavy workflows.",
+    "Frontend-focused full-stack developer with 3 years of commercial SaaS experience building web and mobile products and optimizing data-intensive workflows.",
   email: "linetsky.yura@gmail.com",
   phone: "+47 968 08 211",
   location: "Stange, Norway",
 
   about: {
     intro:
-      "I am a frontend-focused full-stack developer based in Stange, Norway, with 3 years of commercial experience delivering SaaS products and data-heavy workflows.",
+      "I'm based in Stange, Norway, and have 3 years of commercial SaaS experience. I build data-intensive React and Next.js applications and cross-platform mobile products.",
     description:
-      "My work spans React and Next.js interfaces, mobile applications, backend APIs, PostgreSQL, authentication, Stripe, AI integrations, and high-volume workflows processing up to 300k records.",
+      "I design responsive interfaces and the backend workflows behind them, including APIs, database models, authentication, role-based access, school-level data isolation, and third-party integrations.",
     background:
-      "I take ownership from requirements and design through implementation, testing, delivery, and ongoing support. I focus on maintainable solutions, responsive data-heavy interfaces, and performance improvements that reduce latency and system load.",
+      "I take features from requirements through testing and release. I trace production issues across the interface, data flow, and backend, then fix their root causes.",
   },
 
   outsideIde: [
@@ -179,15 +182,16 @@
     {
       company: "UDEX",
       website: "https://udex.app/",
-      role: "Frontend-focused Full-stack Developer",
+      role: title,
       logo: "/udex/udex.jpg",
-      type: "Remote · Project-based",
-      period: "Aug 2023 - Jul 2026",
+      type: "Former employee · Remote",
+      period: "July 2023 – June 2026",
       highlights: [
-        "Re-architected a bulk data workflow handling 150k–300k records by moving intermediate staging and transformation to IndexedDB and Dexie, reducing server and database load and processing latency.",
-        "Optimized high-volume AG Grid interfaces with row virtualization, batched operations, and client-side persistence to keep bulk editing and validation responsive.",
-        "Delivered production frontend and full-stack features using React, Next.js, and TypeScript.",
-        "Built dashboards, complex forms, role-based API flows, authentication, Stripe, and AI integrations while debugging production issues with a remote team.",
+        "Re-architected a workflow that processed 150,000–300,000 records by moving intermediate staging and transformation to IndexedDB with Dexie, reducing server and database load and speeding up processing.",
+        "Used row virtualization, batched operations, and client-side persistence in AG Grid to keep bulk editing and validation responsive.",
+        "Built and maintained commercial SaaS products with React, Next.js, TypeScript, and Bubble, including reusable components, dashboards, complex forms, and validation.",
+        "Designed data models and backend workflows for authentication, role-based access, Stripe payments, and AI features, and integrated third-party APIs.",
+        "Diagnosed production issues and shipped targeted fixes. Worked with a remote team to turn changing client requirements into production features.",
       ],
     },
   ],
@@ -219,9 +223,9 @@
   },
 
   seo: {
-    title: "Yurii Linetskyi | Frontend-focused Full-stack Developer",
+    title: `${name} | ${title}`,
     description:
-      "Frontend-focused full-stack developer in Norway with 3 years of commercial experience in React, Next.js, TypeScript, SaaS products, and data-heavy workflows.",
+      "Frontend-focused full-stack developer in Norway with 3 years of commercial SaaS experience in React, Next.js, TypeScript, and data-intensive web and mobile products.",
     ogImage: "/opengraph-image.png",
   },
 } as const;
