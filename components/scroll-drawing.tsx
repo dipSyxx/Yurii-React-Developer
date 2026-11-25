@@ -50,9 +50,11 @@ function measureDrawing(elements: HTMLElement[], width: number, scrollY: number)
       )
     }
 
-    if (index > 0) points.push(waypoint(rail, point.y - 14))
-    points.push(waypoint(point.x, point.y))
-    if (index < stops.length - 1) points.push(waypoint(rail, point.y + 14))
+    const first = index === 0
+    const last = index === stops.length - 1
+    if (last && !first) points.push(waypoint(rail, point.y - 14))
+    points.push(waypoint(first || last ? point.x : rail, point.y))
+    if (first && !last) points.push(waypoint(rail, point.y + 14))
   })
 
   const contact = elements.at(-1)?.closest('section')
