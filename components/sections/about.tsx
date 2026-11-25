@@ -7,8 +7,8 @@ export function AboutSection() {
       id="about"
       index="01"
       label="About"
-      title="A working file, not a biography."
-      subtitle="A concise view of how I work, what I take ownership of, and what keeps my perspective wider than the current task."
+      title="How I work"
+      subtitle="My background, engineering approach, and interests outside work."
     >
       <AboutWorkspace />
     </SectionWrapper>

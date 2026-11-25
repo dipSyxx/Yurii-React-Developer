@@ -117,7 +117,7 @@ The hero has one near-black primary action and one outlined CV action; both use 
 
 ### Navigation and data display
 
-The header is compact, sticky, and translucent over the off-white canvas. The mobile navigation is an accessible disclosure that closes after navigation or Escape. The project reel never auto-advances. File and stack selectors are real buttons with selected-state semantics.
+The header is compact, sticky, and translucent over the off-white canvas. The mobile navigation closes after navigation or Escape and returns focus to the menu button when dismissed. Case study contents use native fragment links with offsets for the sticky header and contents bar. The project reel never auto-advances. File and stack selectors are real buttons with selected-state semantics.
 
 ### Forms and overlays
 
@@ -129,7 +129,7 @@ Lucide icons provide a consistent 13–24px recognition layer for project domain
 
 ### Motion
 
-Motion is masked, directional, and brief: the nameplate reveals upward, the portrait enters through a clipped mask, content sections rise gently, active file and stack panels replace one another, and project images respond within their clipped frame. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables smooth scrolling, parallax, scanning, and non-essential transitions.
+Motion is masked, directional, and brief: the nameplate reveals upward, the portrait enters through a clipped mask, content sections rise gently, active file and stack panels replace one another, and project images respond within their clipped frame. The client starts reveals once, just before offscreen elements enter the viewport. Static and already visible content remains visible. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables smooth scrolling, parallax, scanning, and non-essential transitions.
 
 ### Content and data visualization
 

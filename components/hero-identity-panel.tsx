@@ -16,13 +16,7 @@ export function HeroIdentityPanel() {
   const imageY = useTransform(scrollYProgress, [0, 1], [-18, 18])
 
   return (
-    <motion.figure
-      ref={panelRef}
-      className="ref-identity-panel"
-      initial={reduceMotion ? false : { opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-      animate={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-      transition={{ duration: 0.9, delay: 0.32, ease: [0.22, 1, 0.36, 1] }}
-    >
+    <figure ref={panelRef} className="ref-identity-panel" data-reveal="portrait">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>YURII.PROFILE</span>
@@ -49,6 +43,6 @@ export function HeroIdentityPanel() {
         <a href={profile.links.linkedin} target="_blank" rel="noreferrer" aria-label="LinkedIn profile"><Linkedin size={14} aria-hidden="true" /></a>
         <a href={profile.links.github} target="_blank" rel="noreferrer" aria-label="GitHub profile"><Github size={14} aria-hidden="true" /></a>
       </figcaption>
-    </motion.figure>
+    </figure>
   )
 }

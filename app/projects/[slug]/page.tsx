@@ -33,7 +33,7 @@ const caseSections = [
   { id: 'role', label: 'Role' },
   { id: 'challenges', label: 'Challenges' },
   { id: 'decisions', label: 'Decisions' },
-  { id: 'architecture', label: 'Architecture' },
+  { id: 'architecture', label: 'Tech stack' },
   { id: 'result', label: 'Result' },
 ]
 
@@ -92,7 +92,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   return (
     <>
       <Navigation />
-      <PortfolioExperience showRail={false}>
+      <PortfolioExperience showRail={false} nativeAnchors>
         <main id="main-content" className="case-study-main">
           <div className="site-shell">
             <Link className="case-study-back" href="/#work">
@@ -116,7 +116,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div>
                   <dt>Status</dt>
                   <dd className="project-status" data-status={project.status === 'Completed' ? 'completed' : 'active'}>
-                    <i aria-hidden="true" /> {project.status}
+                    <i aria-hidden="true" /> {project.status}{project.links.demoUnavailable ? ' · Demo unavailable' : ''}
                   </dd>
                 </div>
               </dl>
@@ -155,7 +155,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <ul>{caseStudy.decisions.map((decision) => <li key={decision}>{decision}</li>)}</ul>
               </CaseStudyBlock>
 
-              <CaseStudyBlock id="architecture" index="06" title="Architecture" icon={Cpu}>
+              <CaseStudyBlock id="architecture" index="06" title="Tech stack" icon={Cpu}>
                 <ul className="case-stack-list">
                   {project.tags.map((technology) => <li key={technology}>{technology}</li>)}
                 </ul>
@@ -166,7 +166,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <div className="case-study-actions">
                   {project.links.demo ? (
                     <a className="primary-action" href={project.links.demo} target="_blank" rel="noreferrer">
-                      View live product <ArrowUpRight size={16} aria-hidden="true" />
+                      {project.links.demoLabel ?? 'Live demo'} <ArrowUpRight size={16} aria-hidden="true" />
                     </a>
                   ) : null}
                   {project.links.stores?.map(({ label, href }) => (

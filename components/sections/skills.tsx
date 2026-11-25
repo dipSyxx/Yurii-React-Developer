@@ -6,43 +6,31 @@ import { StackExplorer } from '@/components/stack-explorer'
 const capabilities = [
   {
     icon: PanelsTopLeft,
-    code: 'UI.SYSTEM',
-    focus: 'CORE FRONTEND',
     mark: 'UI',
-    title: 'Interface systems',
-    description: 'Responsive product surfaces, reusable components, accessible states, and frontend architecture built to evolve.',
-    details: ['Component systems', 'Responsive states', 'Accessibility'],
-    outcome: 'FROM TOKEN TO INTERACTION',
+    title: 'Frontend Engineering',
+    description: 'Build and maintain React and Next.js interfaces for web products.',
+    details: ['Reusable components', 'Responsive layouts', 'Accessibility'],
   },
   {
     icon: Workflow,
-    code: 'FLOW.STATE',
-    focus: 'PRODUCT LOGIC',
     mark: 'FX',
-    title: 'Product workflows',
-    description: 'Complex forms, role-based tools, dashboards, mobile flows, and the edge cases around real user actions.',
-    details: ['Role-based tools', 'Forms & validation', 'Edge cases'],
-    outcome: 'FROM INTENT TO COMPLETION',
+    title: 'Full-Stack Development',
+    description: 'Build web and mobile features from requirements through release.',
+    details: ['Forms & validation', 'Dashboards', 'Testing'],
   },
   {
     icon: Boxes,
-    code: 'SHIP.SUPPORT',
-    focus: 'FEATURE BOUNDARY',
     mark: 'DX',
-    title: 'Delivery & maintenance',
-    description: 'Typed APIs, relational data, authentication, integrations, testing, and production debugging across the feature boundary.',
-    details: ['Typed APIs', 'Relational data', 'Production support'],
-    outcome: 'FROM MERGE TO MAINTENANCE',
+    title: 'Backend & Integrations',
+    description: 'Design typed APIs, data models, and authentication for production workflows.',
+    details: ['Role-based access', 'Relational data', 'Third-party APIs'],
   },
   {
     icon: Gauge,
-    code: 'SPEED.CLARITY',
-    focus: 'QUALITY LAYER',
     mark: 'UX',
-    title: 'UX & performance',
-    description: 'Clear information hierarchy, meaningful motion, dependable loading states, and practical performance work.',
-    details: ['Information hierarchy', 'Loading states', 'Performance'],
-    outcome: 'FROM SIGNAL TO RESPONSE',
+    title: 'Performance & UX',
+    description: 'Keep data-heavy interfaces responsive and loading states clear.',
+    details: ['Row virtualization', 'Batching', 'Client-side persistence'],
   },
 ]
 
@@ -52,8 +40,8 @@ export function SkillsSection() {
       id="skills"
       index="04"
       label="Capabilities & stack"
-      title="What I do. What I build with."
-      subtitle="Frontend engineering is my core. I also work across APIs, data, authentication, delivery, and production support."
+      title="Engineering & technologies"
+      subtitle="Frontend systems, backend services, and performance optimization."
     >
       <div className="ref-capability-grid" data-reveal="viewport">
         {capabilities.map((capability) => {
@@ -62,10 +50,9 @@ export function SkillsSection() {
             <InteractiveSurface as="article" key={capability.title} className="ref-capability-card" maxShift={8} maxTilt={0.8}>
               <span className="ref-capability-watermark" aria-hidden="true">{capability.mark}</span>
 
-              <header className="ref-capability-card-head">
-                <span>{capability.code}</span>
-                <span className="ref-capability-status"><i />{capability.focus}</span>
-              </header>
+              <div className="ref-capability-card-head" aria-hidden="true">
+                <i className="ref-capability-status" />
+              </div>
 
               <div className="ref-capability-route" aria-hidden="true">
                 <span className="ref-capability-node"><Icon size={22} /></span>
@@ -82,7 +69,6 @@ export function SkillsSection() {
               </div>
 
               <footer>
-                <span>{capability.outcome}</span>
                 <ArrowUpRight size={17} aria-hidden="true" />
               </footer>
             </InteractiveSurface>

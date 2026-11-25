@@ -12,6 +12,8 @@ export interface Project {
   links: {
     repo?: string;
     demo?: string;
+    demoLabel?: string;
+    demoUnavailable?: boolean;
     stores?: { label: string; href: string }[];
   };
   highlights: string[];
@@ -28,7 +30,7 @@ export const projects: Project[] = [
   {
     id: "kantinapp",
     title: "KantinApp",
-    tagline: "Multi-tenant school canteen platform with released iOS and Android apps",
+    tagline: "Multi-tenant school canteen platform with published iOS and Android apps",
     description:
       "Students use KantinApp to check weekly menus and allergens, save favourites, vote, and give feedback. Canteen staff use a Next.js administration platform to publish menus, review demand, and plan portions. The app and administration platform share a backend that scopes data and workflows to each school.",
     type: "Mobile app · Web administration",
@@ -57,6 +59,7 @@ export const projects: Project[] = [
     image: "/projects/kantinapp.webp",
     links: {
       demo: "https://kantinapp.app/",
+      demoLabel: "Website",
       stores: [
         { label: "App Store", href: "https://apps.apple.com/no/app/kantinapp/id6769730596" },
         { label: "Google Play", href: "https://play.google.com/store/apps/details?id=no.innlandetfylke.kantinapp" },
@@ -93,7 +96,7 @@ export const projects: Project[] = [
   {
     id: "circular-economy-hamar",
     title: "Sirkulær Norge",
-    tagline: "Circular economy platform for Hamar (Norway)",
+    tagline: "Circular economy platform for Hamar with a map and local business directory",
     description:
       "Sirkulær Norge is a Next.js platform that helps residents make sustainable choices with a directory of local businesses and services, a map, decision wizard, calculators, quizzes, and an admin panel for moderation.",
     type: "Public platform · Administration",
@@ -113,7 +116,7 @@ export const projects: Project[] = [
     image: "/projects/sircular.webp",
     links: {
       repo: "https://github.com/dipSyxx/circular-economy-hamar",
-      demo: "https://circular-economy-hamar.vercel.app/",
+      demoUnavailable: true,
     },
     highlights: [
       "Directory of local businesses and services with search, filters, favorites, and detailed profiles",
@@ -143,7 +146,7 @@ export const projects: Project[] = [
   {
     id: "pillmind-medication-platform",
     title: "PillMind",
-    tagline: "Medication management workspace + marketing site",
+    tagline: "Medication workspace for scheduling, dose logging, and adherence analytics",
     description:
       "A full-stack platform that pairs an authenticated patient workspace with analytics and branded marketing pages, built on Next.js 15 App Router for a mobile-first experience.",
     type: "SaaS workspace · Marketing site",
@@ -193,7 +196,7 @@ export const projects: Project[] = [
   {
     id: "hamartech-web",
     title: "HamarTech",
-    tagline: "Festival management platform for HamarTech",
+    tagline: "Festival platform for ticket reservations and QR check-ins",
     description:
       "A full-featured festival hub for event discovery, ticket reservations, QR code check-ins, and admin operations for a week-long tech and creativity festival.",
     type: "Event platform · Operations",
@@ -243,7 +246,7 @@ export const projects: Project[] = [
   {
     id: "oda-remake",
     title: "odaRemake",
-    tagline: "Grocery delivery experience remake",
+    tagline: "Full-stack commerce study covering catalogue, cart, and checkout",
     description:
       "A learning-focused full-stack remake of Oda's grocery experience with a Next.js 16 App Router frontend and a Prisma-backed API for catalog, carts, orders, and users.",
     type: "Commerce study",
@@ -293,7 +296,7 @@ export const projects: Project[] = [
   {
     id: "norsk-coach-ai",
     title: "NorskCoach",
-    tagline: "AI Norwegian tutor with chat, vocabulary SRS, and quiz analytics",
+    tagline: "AI chat tutor for Norwegian with spaced vocabulary review and quiz analytics",
     description:
       "A full-stack Norwegian learning app that combines guided AI chat, automatic correction, vocabulary extraction, spaced-repetition review, and quiz-based learning analytics for measurable progress.",
     type: "AI learning product",

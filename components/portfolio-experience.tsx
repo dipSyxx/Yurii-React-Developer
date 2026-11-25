@@ -15,9 +15,11 @@ const sections = [
 export function PortfolioExperience({
   children,
   showRail = true,
+  nativeAnchors = false,
 }: {
   children: ReactNode
   showRail?: boolean
+  nativeAnchors?: boolean
 }) {
   const { scrollYProgress } = useScroll()
   const progress = useSpring(scrollYProgress, {
@@ -36,7 +38,8 @@ export function PortfolioExperience({
       easing: (value) => 1 - Math.pow(1 - value, 4),
       smoothWheel: true,
       syncTouch: false,
-      anchors: { offset: -96 },
+      anchors: nativeAnchors ? false : { offset: -96 },
+      stopInertiaOnNavigate: nativeAnchors,
     })
 
     let frame = 0
@@ -50,19 +53,24 @@ export function PortfolioExperience({
       cancelAnimationFrame(frame)
       lenis.destroy()
     }
-  }, [])
+  }, [nativeAnchors])
 
   useEffect(() => {
     const targets = document.querySelectorAll<HTMLElement>('[data-reveal]')
     const observer = new IntersectionObserver(
       (entries) => {
+        const viewportBottom = window.innerHeight
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return
-          entry.target.setAttribute('data-visible', 'true')
           observer.unobserve(entry.target)
+
+          // Keep content visible if it was already painted or scrolled into view.
+          if (entry.boundingClientRect.top < viewportBottom || entry.target.getBoundingClientRect().top < viewportBottom) return
+
+          entry.target.setAttribute('data-visible', 'true')
         })
       },
-      { rootMargin: '0px 0px -5% 0px', threshold: 0.02 },
+      { rootMargin: '0px 0px 48px 0px' },
     )
 
     targets.forEach((target) => observer.observe(target))

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import Link from 'next/link'
 import { ArrowUpRight, Braces, Github, Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -17,13 +17,19 @@ const navigationItems = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeId, setActiveId] = useState('top')
+  const menuTriggerRef = useRef<HTMLButtonElement>(null)
+
+  const closeMenu = useCallback(() => {
+    menuTriggerRef.current?.focus({ preventScroll: true })
+    setIsOpen(false)
+  }, [])
 
   useEffect(() => {
     if (!isOpen) return
 
     const previousOverflow = document.body.style.overflow
     const closeOnEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape') setIsOpen(false)
+      if (event.key === 'Escape') closeMenu()
     }
 
     document.body.style.overflow = 'hidden'
@@ -33,7 +39,7 @@ export function Navigation() {
       document.body.style.overflow = previousOverflow
       window.removeEventListener('keydown', closeOnEscape)
     }
-  }, [isOpen])
+  }, [closeMenu, isOpen])
 
   useEffect(() => {
     const targets = navigationItems
@@ -55,8 +61,6 @@ export function Navigation() {
     targets.forEach((target) => observer.observe(target))
     return () => observer.disconnect()
   }, [])
-
-  const closeMenu = () => setIsOpen(false)
 
   return (
     <header className="ref-header">
@@ -90,12 +94,13 @@ export function Navigation() {
         </div>
 
         <button
+          ref={menuTriggerRef}
           className="ref-menu-trigger"
           type="button"
           aria-expanded={isOpen}
           aria-controls="ref-mobile-navigation"
           aria-label={isOpen ? 'Close navigation' : 'Open navigation'}
-          onClick={() => setIsOpen((current) => !current)}
+          onClick={() => isOpen ? closeMenu() : setIsOpen(true)}
         >
           <span>{isOpen ? 'Close' : 'Menu'}</span>
           {isOpen ? <X size={18} aria-hidden="true" /> : <Menu size={18} aria-hidden="true" />}

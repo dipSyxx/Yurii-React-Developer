@@ -9,7 +9,7 @@ export const stackGroups = [
   {
     id: 'frontend',
     label: 'Frontend',
-    description: 'Interfaces, component systems, and responsive product experiences.',
+    description: 'Responsive interfaces and reusable components.',
     technologies: [
       'React',
       'Next.js',
@@ -31,25 +31,25 @@ export const stackGroups = [
   {
     id: 'backend',
     label: 'Backend & auth',
-    description: 'Application services, authentication, integrations, and reliable API boundaries.',
+    description: 'APIs, authentication, and third-party integrations.',
     technologies: ['Node.js', 'Express', 'REST APIs', 'NextAuth', 'OAuth / OIDC', 'JWT / sessions', 'Stripe', 'AI integrations', 'AI SDK', 'OpenAI'],
   },
   {
     id: 'data',
     label: 'Data & persistence',
-    description: 'Relational models, local persistence, and product data that remain understandable as systems grow.',
+    description: 'Relational data models and browser storage.',
     technologies: ['PostgreSQL', 'Prisma', 'Supabase', 'Neon', 'Firebase', 'IndexedDB', 'Dexie'],
   },
   {
     id: 'state',
     label: 'State & forms',
-    description: 'Predictable client and server state, validation, and form workflows with clear failure states.',
+    description: 'Client and server state, forms, and validation.',
     technologies: ['TanStack Query', 'SWR', 'Redux', 'Zustand', 'React Hook Form', 'Zod'],
   },
   {
     id: 'delivery',
     label: 'Delivery & tools',
-    description: 'The practical delivery, debugging, collaboration, and design layer around production work.',
+    description: 'Version control, deployment, debugging, and design.',
     technologies: ['Vercel', 'GitHub', 'Git', 'pnpm', 'VS Code', 'Postman', 'Figma', 'Bubble'],
   },
 ] as const satisfies readonly StackGroup[]

@@ -8,14 +8,13 @@ export function ExperienceSection() {
       id="experience"
       index="03"
       label="Experience"
-      title="High-volume product work that holds up."
-      subtitle="Three years of commercial delivery across frontend, backend workflows, data-heavy interfaces, and production performance."
+      title="Commercial engineering experience"
+      subtitle="SaaS development and high-volume data workflows at UDEX."
     >
       <div className="ref-career-window" data-reveal="viewport">
         <div className="ref-window-bar" aria-hidden="true">
           <span className="ref-window-dots"><i /><i /><i /></span>
           <span>CAREER.LOG</span>
-          <span>1 POSITION</span>
         </div>
 
         <div className="ref-career-layout">

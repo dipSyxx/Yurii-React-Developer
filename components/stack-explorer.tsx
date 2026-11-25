@@ -80,14 +80,12 @@ export function StackExplorer() {
   const [activeId, setActiveId] = useState<(typeof stackGroups)[number]['id']>(stackGroups[0].id)
   const reduceMotion = useReducedMotion()
   const activeGroup = stackGroups.find((group) => group.id === activeId) ?? stackGroups[0]
-  const technologyCount = stackGroups.reduce((total, group) => total + group.technologies.length, 0)
 
   return (
     <div className="ref-stack-browser" data-reveal="viewport">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>TECHNOLOGIES/</span>
-        <span>{String(activeGroup.technologies.length).padStart(2, '0')} SHOWN / {technologyCount} TOTAL</span>
       </div>
 
       <div className="ref-stack-layout">
@@ -131,10 +129,9 @@ export function StackExplorer() {
                   <p>{activeGroup.description}</p>
                 </header>
                 <div className="ref-stack-readout" aria-hidden="true">
-                  <span>ACTIVE SET</span>
                   <strong>{String(activeGroup.technologies.length).padStart(2, '0')}</strong>
                   <i><span /></i>
-                  <small>CV + PRODUCT WORK</small>
+                  <small>Technologies</small>
                 </div>
               </div>
               <ul>
@@ -166,7 +163,6 @@ export function StackExplorer() {
                       </span>
                       <span className="ref-tech-name">
                         <strong>{technology}</strong>
-                        <small>STACK ENTRY</small>
                       </span>
                       <ArrowUpRight className="ref-tech-arrow" size={15} aria-hidden="true" />
                       <i className="ref-tech-scan" aria-hidden="true" />

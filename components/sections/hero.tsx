@@ -1,12 +1,12 @@
 import type { CSSProperties } from 'react'
-import { ArrowDownRight, ArrowUpRight, Download } from 'lucide-react'
+import { ArrowDownRight, ArrowUpRight, FileText } from 'lucide-react'
 import { HeroIdentityPanel } from '@/components/hero-identity-panel'
 import { profile } from '@/src/content/profile'
 
 const facts = [
-  { value: '03 YEARS', label: 'commercial experience' },
-  { value: '300K', label: 'records in high-volume workflows' },
-  { value: 'WEB + MOBILE', label: 'product surfaces' },
+  { value: '3 years', label: 'Commercial experience' },
+  { value: '150K–300K', label: 'Records in a UDEX workflow' },
+  { value: 'iOS + Android', label: 'Published apps' },
 ]
 
 export function HeroSection() {
@@ -33,7 +33,7 @@ export function HeroSection() {
               View projects <ArrowDownRight size={17} aria-hidden="true" />
             </a>
             <a className="ref-secondary-action" href={profile.links.cv} target="_blank" rel="noreferrer">
-              <Download size={15} aria-hidden="true" /> Download CV <ArrowUpRight size={13} aria-hidden="true" />
+              <FileText size={15} aria-hidden="true" /> View CV <ArrowUpRight size={13} aria-hidden="true" />
             </a>
           </div>
         </div>

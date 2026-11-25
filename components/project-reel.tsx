@@ -83,13 +83,13 @@ export function ProjectReel() {
                   />
                 ) : null}
                 <span aria-hidden="true"><ProjectSymbol projectId={project.id} size={24} /></span>
-                <span className="ref-project-focus" aria-hidden="true"><b>VIEW / CASE</b></span>
+                <span className="ref-project-focus" aria-hidden="true" />
                 <i className="ref-project-scan" aria-hidden="true" />
               </InteractiveSurface>
             </div>
 
             <div className="ref-project-copy">
-              <p>{project.type} · {project.status}</p>
+              <p>{project.type} · {project.status}{project.links.demoUnavailable ? ' · Demo unavailable' : ''}</p>
               <h3>{project.title}</h3>
               <p>{project.tagline}</p>
               <ul aria-label={`${project.title} technologies`}>
@@ -98,19 +98,23 @@ export function ProjectReel() {
             </div>
 
             <div className="ref-project-actions">
-              <Link href={`/projects/${project.id}`}>View case <ArrowUpRight size={14} aria-hidden="true" /></Link>
+              <Link href={`/projects/${project.id}`}>View project <ArrowUpRight size={14} aria-hidden="true" /></Link>
               {project.links.demo ? (
-                <a href={project.links.demo} target="_blank" rel="noreferrer">Live <ArrowUpRight size={13} aria-hidden="true" /></a>
+                <a href={project.links.demo} target="_blank" rel="noreferrer">
+                  {project.links.demoLabel ?? 'Demo'} <ArrowUpRight size={13} aria-hidden="true" />
+                </a>
               ) : null}
               {project.links.repo ? (
-                <a href={project.links.repo} target="_blank" rel="noreferrer" aria-label={`${project.title} source code`}><Github size={14} aria-hidden="true" /></a>
+                <a href={project.links.repo} target="_blank" rel="noreferrer" aria-label={`${project.title} source code`}>
+                  <Github size={14} aria-hidden="true" />{project.links.demoUnavailable ? 'Source' : null}
+                </a>
               ) : null}
             </div>
           </InteractiveSurface>
         ))}
       </div>
 
-      <p className="ref-reel-hint" aria-hidden="true"><ArrowRight size={14} /> Scroll / drag to explore</p>
+      <p className="ref-reel-hint" aria-hidden="true"><ArrowRight size={14} /> Use arrows or swipe</p>
     </div>
   )
 }

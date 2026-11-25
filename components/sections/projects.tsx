@@ -6,9 +6,9 @@ export function ProjectsSection() {
     <SectionWrapper
       id="work"
       index="02"
-      label="Selected projects"
-      title="Six products. One continuous reel."
-      subtitle="Real product work across mobile, operations, public services, learning, health, and commerce. Every project opens into a complete case study."
+      label="Projects"
+      title="Selected work"
+      subtitle="Case studies on product decisions, implementation, and results."
       className="ref-projects-section"
     >
       <ProjectReel />

@@ -22,12 +22,11 @@ export function AboutWorkspace() {
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>ABOUT_ME/</span>
-        <span>READ ONLY</span>
       </div>
 
       <div className="ref-workspace-body">
         <aside className="ref-file-tree">
-          <p>DIRECTIONS</p>
+          <p>FILES</p>
           <span><FolderOpen size={14} aria-hidden="true" /> yurii/</span>
           <div role="group" aria-label="About files">
             {files.map((file, index) => {
@@ -65,7 +64,7 @@ export function AboutWorkspace() {
               {activeFile === 'profile' ? (
                 <>
                   <p className="ref-file-path">{'// ABOUT / PROFILE'}</p>
-                  <h3>Frontend first.<br />Product minded.</h3>
+                  <h3>From interface<br />to infrastructure.</h3>
                   <p>{profile.about.intro}</p>
                   <p>{profile.about.description}</p>
                 </>
@@ -74,7 +73,7 @@ export function AboutWorkspace() {
               {activeFile === 'approach' ? (
                 <>
                   <p className="ref-file-path">{'// ABOUT / APPROACH'}</p>
-                  <h3>Own the feature,<br />not only the screen.</h3>
+                  <h3>From requirements<br />to release.</h3>
                   <p>{profile.about.background}</p>
                   <dl className="ref-property-list">
                     <div><dt>01</dt><dd>Interface architecture</dd></div>
@@ -87,7 +86,7 @@ export function AboutWorkspace() {
               {activeFile === 'outside' ? (
                 <>
                   <p className="ref-file-path">{'// ABOUT / OUTSIDE'}</p>
-                  <h3>A wider frame<br />than the IDE.</h3>
+                  <h3>Outside work</h3>
                   <ul className="ref-outside-grid">
                     {profile.outsideIde.map((item, index) => (
                       <li key={item}><span>{String(index + 1).padStart(2, '0')}</span>{item}</li>
@@ -101,7 +100,7 @@ export function AboutWorkspace() {
       </div>
 
       <div className="ref-workspace-status" aria-hidden="true">
-        <span>main*</span><span>03 FILES</span><span>UTF-8</span><span>MARKDOWN</span>
+        <span>{files.length} files</span>
       </div>
     </div>
   )

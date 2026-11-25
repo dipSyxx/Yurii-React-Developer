@@ -1,11 +1,11 @@
-import { ArrowUp, ArrowUpRight, Download, Github, Linkedin, Mail } from 'lucide-react'
+import { ArrowUp, ArrowUpRight, FileText, Github, Linkedin, Mail } from 'lucide-react'
 import { SectionWrapper } from '@/components/section-wrapper'
 import { profile } from '@/src/content/profile'
 
 const contactLinks = [
   { label: 'LinkedIn', href: profile.links.linkedin, icon: Linkedin },
   { label: 'GitHub', href: profile.links.github, icon: Github },
-  { label: 'Download CV', href: profile.links.cv, icon: Download },
+  { label: 'View CV', href: profile.links.cv, icon: FileText },
 ]
 
 export function ContactSection() {
@@ -14,12 +14,12 @@ export function ContactSection() {
       id="contact"
       index="05"
       label="Contact"
-      title="Let’s build something useful."
-      subtitle="For product roles, collaborations, and serious frontend work — send a direct message."
+      title="Let’s work together"
+      subtitle="Open to software engineering opportunities and freelance projects."
       className="ref-contact-section"
     >
       <div className="ref-contact-panel" data-reveal="viewport">
-        <p>{'// AVAILABLE FOR THE RIGHT OPPORTUNITY'}</p>
+        <p>Email</p>
         <a className="ref-contact-email" href={`mailto:${profile.email}`}>
           <span><Mail size={20} aria-hidden="true" /> {profile.email}</span>
           <ArrowUpRight size={34} aria-hidden="true" />

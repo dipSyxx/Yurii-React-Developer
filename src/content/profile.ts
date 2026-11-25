@@ -6,18 +6,18 @@ export const profile = {
   title,
   siteUrl: "https://yurii-react-developer.vercel.app",
   tagline:
-    "Frontend-focused full-stack developer with 3 years of commercial SaaS experience building web and mobile products and optimizing data-intensive workflows.",
+    "Frontend-focused full-stack developer with 3 years in commercial SaaS. I build web and mobile apps and optimize data-heavy workflows.",
   email: "linetsky.yura@gmail.com",
   phone: "+47 968 08 211",
   location: "Stange, Norway",
 
   about: {
     intro:
-      "I'm based in Stange, Norway, and have 3 years of commercial SaaS experience. I build data-intensive React and Next.js applications and cross-platform mobile products.",
+      "I'm based in Stange, Norway. I build data-intensive React and Next.js applications and cross-platform mobile apps.",
     description:
-      "I design responsive interfaces and the backend workflows behind them, including APIs, database models, authentication, role-based access, school-level data isolation, and third-party integrations.",
+      "I build responsive interfaces, APIs, and data models with authentication, role-based access, school-level data isolation, and third-party integrations.",
     background:
-      "I take features from requirements through testing and release. I trace production issues across the interface, data flow, and backend, then fix their root causes.",
+      "I take features from requirements through testing and release, and fix production issues across the UI, data flow, and backend.",
   },
 
   outsideIde: [
@@ -184,14 +184,14 @@ export const profile = {
       website: "https://udex.app/",
       role: title,
       logo: "/udex/udex.jpg",
-      type: "Former employee · Remote",
+      type: "Remote",
       period: "July 2023 – June 2026",
       highlights: [
-        "Re-architected a workflow that processed 150,000–300,000 records by moving intermediate staging and transformation to IndexedDB with Dexie, reducing server and database load and speeding up processing.",
-        "Used row virtualization, batched operations, and client-side persistence in AG Grid to keep bulk editing and validation responsive.",
-        "Built and maintained commercial SaaS products with React, Next.js, TypeScript, and Bubble, including reusable components, dashboards, complex forms, and validation.",
-        "Designed data models and backend workflows for authentication, role-based access, Stripe payments, and AI features, and integrated third-party APIs.",
-        "Diagnosed production issues and shipped targeted fixes. Worked with a remote team to turn changing client requirements into production features.",
+        "Moved staging and transformation for 150K–300K records to IndexedDB with Dexie, reducing server and database load and speeding up the workflow.",
+        "Kept bulk editing and validation responsive in AG Grid with row virtualization, batching, and client-side persistence.",
+        "Built and maintained commercial SaaS apps with React, Next.js, TypeScript, and Bubble, including dashboards, forms, and reusable components.",
+        "Designed data models and built authentication, role-based access, Stripe payments, AI features, and third-party API integrations.",
+        "Diagnosed production issues, shipped targeted fixes, and turned client requirements into features with a remote team.",
       ],
     },
   ],
