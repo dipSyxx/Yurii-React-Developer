@@ -113,7 +113,7 @@ Interactive elements use cobalt sweeps, near-black inversion, directional icon m
 
 ### Buttons and actions
 
-The hero has one near-black primary action and one outlined CV action; both use a directional cobalt wipe and offset press depth. Project cards use a full-width case link plus compact live and source controls. The KantinApp case study also links directly to its app store listings. External actions keep text labels where space permits and have accessible names when icon-only.
+The hero has one near-black primary action and one outlined CV action; both use a directional cobalt wipe and offset press depth. The screenshot, copy, and primary action on each project card share one case-study link. Compact live and source controls remain independent. The KantinApp case study also links directly to its app store listings. External actions keep text labels where space permits and have accessible names when icon-only.
 
 ### Navigation and data display
 
@@ -128,6 +128,8 @@ The site has no primary form or modal workflow. Contact uses direct email, CV, a
 Lucide icons provide a consistent 13–24px recognition layer for project domains, capability categories, contact actions, and stack navigation. The technology inventory contains 46 CV and product-work entries, each wired to an original brand mark with a quiet typographic fallback if a remote asset fails. Important actions keep visible text; every icon-only link and button has an accessible name.
 
 ### Motion
+
+When a visitor opens a project from the reel, its screenshot and frame travel into the case-study figure in a 340ms view transition. The link also supports standard navigation for reduced-motion preferences and browsers that lack view transitions.
 
 The hero plays a single CSS entrance on load. The nameplate rises in two beats, a diagonal wipe reveals the color portrait from a cobalt halftone print, and the description, actions, and facts follow in sequence. The halftone is confined to the portrait frame and disappears after the reveal. Below the hero, the client starts each reveal just before an offscreen element enters the viewport. Static and already visible sections remain visible. Active file and stack panels replace one another, and project images respond within their frames. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables the hero entrance, smooth scrolling, parallax, scanning, and non-essential transitions.
 

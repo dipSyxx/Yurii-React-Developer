@@ -1164,6 +1164,7 @@ body {
   isolation: isolate;
   display: grid;
   min-width: 0;
+  grid-template-columns: minmax(0, 1fr) auto;
   grid-template-rows: auto 1fr auto;
   border: 1px solid var(--foreground);
   background: var(--surface);
@@ -1179,6 +1180,17 @@ body {
   border-color: var(--accent-fill);
   box-shadow: 0.55rem 0.55rem 0 var(--accent);
 }
+
+.ref-project-link {
+  display: grid;
+  min-width: 0;
+  grid-area: 1 / 1 / -1 / -1;
+  grid-template-rows: auto 1fr auto;
+  grid-template-rows: subgrid;
+  grid-template-columns: subgrid;
+}
+
+.ref-project-link > :is(.ref-project-frame, .ref-project-copy) { grid-column: 1 / -1; }
 
 .ref-project-frame { overflow: hidden; }
 
@@ -1207,6 +1219,12 @@ body {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   background: var(--image-placeholder);
+}
+
+.ref-project-preview {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
 .ref-project-image img {
@@ -1331,20 +1349,21 @@ body {
 .ref-project-card:hover .ref-project-copy li:nth-child(2) { transform: translateY(-0.18rem); background: var(--accent-fill); color: var(--on-accent); }
 
 .ref-project-actions {
+  z-index: 1;
   display: flex;
+  grid-area: 3 / 2;
   align-items: stretch;
   border-top: 1px solid var(--foreground);
+  border-left: 1px solid var(--foreground);
 }
 
+.ref-project-cta,
 .ref-project-actions a {
-  position: relative;
-  isolation: isolate;
   display: inline-flex;
   min-height: 2.65rem;
   align-items: center;
   justify-content: center;
   gap: 0.35rem;
-  border-right: 1px solid var(--foreground);
   padding: 0.65rem 0.75rem;
   font-family: var(--font-ibm-plex-mono), monospace;
   font-size: var(--font-caption);
@@ -1353,21 +1372,25 @@ body {
   transition: color 220ms ease, background 220ms ease;
 }
 
-.ref-project-actions a:first-child {
-  flex: 1;
+.ref-project-cta {
+  grid-area: 3 / 1;
   justify-content: space-between;
+  border-top: 1px solid var(--foreground);
   background: var(--inverse);
   color: var(--inverse-foreground);
 }
 
-.ref-project-actions a:last-child { border-right: 0; }
+.ref-project-actions a + a { border-left: 1px solid var(--foreground); }
 
+.ref-project-link:is(:hover, :focus-visible) .ref-project-cta,
 .ref-project-actions a:hover {
   background: var(--accent-fill);
   color: var(--on-accent);
 }
 
+.ref-project-cta svg,
 .ref-project-actions a svg { transition: transform 260ms cubic-bezier(.22, 1, .36, 1); }
+.ref-project-link:is(:hover, :focus-visible) .ref-project-cta svg,
 .ref-project-actions a:hover svg { transform: translate(3px, -3px); }
 
 .ref-reel-hint {
@@ -2490,6 +2513,31 @@ body {
 
 /* Motion */
 
+html[data-project-transition]::view-transition-group(root) {
+  animation-duration: 120ms;
+}
+
+html[data-project-transition]::view-transition-group(project-preview) {
+  z-index: 1;
+  animation-duration: 340ms;
+  animation-timing-function: cubic-bezier(.32, .72, .37, 1);
+}
+
+html[data-project-transition]::view-transition-image-pair(project-preview) {
+  box-shadow: 0 0 0 1px var(--foreground);
+}
+
+html[data-project-transition]::view-transition-old(project-preview) {
+  display: none;
+}
+
+html[data-project-transition]::view-transition-new(project-preview) {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: none;
+}
+
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
   .ref-hero {
     --hero-ease: cubic-bezier(.19, .72, .24, 1);
@@ -2738,6 +2786,7 @@ body {
   .ref-hero-actions { display: grid; }
   .ref-identity-panel { width: calc(100% - 0.7rem); box-shadow: 0.45rem 0.45rem 0 var(--accent); }
   .ref-project-track { grid-auto-columns: 92%; }
+  .ref-project-cta,
   .ref-project-actions a { padding-inline: 0.6rem; }
   .ref-stack-heading { grid-template-columns: 1fr; }
   .ref-stack-readout { min-height: 8rem; }

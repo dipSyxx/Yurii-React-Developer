@@ -28,7 +28,7 @@ export function ProjectArtifact({
         <span><LockKeyhole size={11} /> product://{project.id}/overview</span>
         <span>01</span>
       </span>
-      <span className="artifact-image">
+      <span className="artifact-image" data-case-frame={project.id}>
         <Image
           src={project.image ?? '/placeholder.jpg'}
           alt={`${project.title} product interface`}
