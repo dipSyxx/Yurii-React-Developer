@@ -585,22 +585,36 @@ body {
 }
 
 .ref-portrait-stage {
+  --portrait-dot-pitch: clamp(0.6rem, 0.85vw, 0.8rem);
   position: relative;
   aspect-ratio: 4 / 5;
   overflow: hidden;
   background: radial-gradient(circle at 50% 28%, var(--portrait-start) 0%, var(--portrait-middle) 54%, var(--portrait-end) 100%);
 }
 
-.ref-portrait-aperture,
-.ref-portrait-sweep {
+.ref-portrait-aperture {
   position: absolute;
   inset: 0;
 }
 
-.ref-portrait-sweep {
-  background: linear-gradient(90deg, transparent calc(100% - 2.7rem), color-mix(in srgb, var(--accent-fill) 46%, transparent) calc(100% - 2px), var(--accent) calc(100% - 2px));
-  opacity: 0;
+.ref-portrait-print,
+.ref-portrait-halftone {
+  position: absolute;
+  inset: 0;
+  isolation: isolate;
+}
+
+.ref-portrait-print {
+  visibility: hidden;
+  background: var(--accent-fill);
   pointer-events: none;
+}
+
+.ref-portrait-halftone {
+  /* Screening the photo over the dot gradient makes the dark areas print larger dots. */
+  background: radial-gradient(circle closest-side, #000 15%, #fff 100%) 0 0 / var(--portrait-dot-pitch) var(--portrait-dot-pitch);
+  filter: contrast(12);
+  mix-blend-mode: screen;
 }
 
 .ref-portrait-marks {
@@ -632,7 +646,12 @@ body {
 .ref-portrait-motion img {
   object-fit: cover;
   object-position: center 24%;
-  filter: none;
+}
+
+.ref-portrait-halftone img {
+  background: #f5f5f5;
+  filter: grayscale(1) brightness(0.64);
+  mix-blend-mode: screen;
 }
 
 .ref-portrait-grid {
@@ -2474,9 +2493,6 @@ body {
 @media (prefers-reduced-motion: no-preference) and (scripting: enabled) {
   .ref-hero {
     --hero-ease: cubic-bezier(.19, .72, .24, 1);
-    --hero-wipe-ease: cubic-bezier(.62, .04, .27, 1);
-    --hero-wipe-duration: 740ms;
-    --hero-wipe-delay: 140ms;
   }
 
   .ref-grid-plane { animation: ref-hero-fade 850ms ease-out backwards; }
@@ -2501,12 +2517,8 @@ body {
   .ref-hero-actions > a + a { animation-delay: 385ms; }
 
   .ref-identity-panel { animation: ref-hero-lift 580ms var(--hero-ease) 55ms backwards; }
-  .ref-portrait-aperture {
-    animation: ref-hero-portrait-in var(--hero-wipe-duration) var(--hero-wipe-ease) var(--hero-wipe-delay) backwards;
-  }
-
-  .ref-portrait-sweep {
-    animation: ref-hero-portrait-sweep var(--hero-wipe-duration) var(--hero-wipe-ease) var(--hero-wipe-delay);
+  .ref-portrait-print {
+    animation: ref-hero-portrait-ink-out 780ms cubic-bezier(.55, .08, .25, 1) 245ms backwards;
   }
 
   .ref-portrait-marks { animation: ref-hero-fade 430ms ease-out 320ms backwards; }
@@ -2546,15 +2558,9 @@ body {
   from { opacity: 0; transform: translate(0); }
 }
 
-@keyframes ref-hero-portrait-in {
-  from { clip-path: inset(0 100% 0 0); }
-  to { clip-path: inset(0); }
-}
-
-@keyframes ref-hero-portrait-sweep {
-  from { opacity: 0; transform: translateX(-100%); }
-  12%, 76% { opacity: 1; }
-  to { opacity: 0; transform: translateX(0); }
+@keyframes ref-hero-portrait-ink-out {
+  from { visibility: visible; clip-path: polygon(0 0, 100% 0, 138% 100%, 0 100%); }
+  to { visibility: visible; clip-path: polygon(0 0, -38% 0, 0 100%, 0 100%); }
 }
 
 @keyframes ref-project-scan {

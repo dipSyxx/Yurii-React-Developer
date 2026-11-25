@@ -80,7 +80,7 @@ The portfolio should feel like a bold graphic identity opening into a precise di
 - **Locale and language policy:** The portfolio is English-first.
 - **Usage scene:** Desktop and laptop portfolio review with an equally intentional compact mobile layout.
 - **Register:** Brand and content site focused on profile, work, experience, and direct contact.
-- **Memorable signature:** `YL_WORKSPACE` begins with the cobalt-offset `YURII LINETSKYI` nameplate and resolves into the `TECHNOLOGIES/` signal viewport: a CV-cross-checked tool index with pointer-relative inspection lines, brand marks, and hard-edged category controls.
+- **Memorable signature:** The cobalt-offset `YURII LINETSKYI` nameplate sits beside a portrait revealed from a halftone print. The `TECHNOLOGIES/` signal viewport continues the workspace style with a CV-cross-checked tool index, pointer-relative inspection lines, brand marks, and hard-edged category controls.
 - **Restraint:** System UI is used only where it communicates navigation, project framing, profile files, career history, or tool categories. It is not decorative filler.
 - **Anti-references:** No oversized theme control, gradient type, glassmorphism, animated blobs, fake terminal commands, auto-playing project carousel, skill percentages, custom cursor, or decorative analytics.
 - **Token ownership/runtime mapping:** `app/globals.css` owns reset, compatibility tokens, and retained secondary-page foundations. `app/kinetic.css` owns the approved reference-led visual system and responsive behavior. Tailwind v4 maps shared CSS variables through `@theme inline`.
@@ -129,7 +129,7 @@ Lucide icons provide a consistent 13–24px recognition layer for project domain
 
 ### Motion
 
-The hero plays a single CSS entrance on load. The nameplate rises in two beats, a cobalt edge wipes open the portrait, and the description, actions, and facts follow in sequence. Below the hero, the client starts each reveal just before an offscreen element enters the viewport. Static and already visible sections remain visible. Active file and stack panels replace one another, and project images respond within their frames. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables the hero entrance, smooth scrolling, parallax, scanning, and non-essential transitions.
+The hero plays a single CSS entrance on load. The nameplate rises in two beats, a diagonal wipe reveals the color portrait from a cobalt halftone print, and the description, actions, and facts follow in sequence. The halftone is confined to the portrait frame and disappears after the reveal. Below the hero, the client starts each reveal just before an offscreen element enters the viewport. Static and already visible sections remain visible. Active file and stack panels replace one another, and project images respond within their frames. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables the hero entrance, smooth scrolling, parallax, scanning, and non-essential transitions.
 
 ### Content and data visualization
 

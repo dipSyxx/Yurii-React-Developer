@@ -6,6 +6,12 @@ import { Github, Linkedin, MapPin } from 'lucide-react'
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { profile } from '@/src/content/profile'
 
+const portrait = {
+  src: '/myPhoto/myphoto.webp',
+  sizes: '(max-width: 768px) 88vw, 34vw',
+  fill: true,
+}
+
 export function HeroIdentityPanel() {
   const panelRef = useRef<HTMLElement>(null)
   const reduceMotion = useReducedMotion()
@@ -27,16 +33,18 @@ export function HeroIdentityPanel() {
         <div className="ref-portrait-aperture">
           <motion.div className="ref-portrait-motion" style={reduceMotion ? undefined : { y: imageY }}>
             <Image
-              src="/myPhoto/myphoto.webp"
+              {...portrait}
               alt="Portrait of Yurii Linetskyi"
-              fill
               priority
-              sizes="(max-width: 768px) 88vw, 34vw"
             />
+            <div className="ref-portrait-print" aria-hidden="true">
+              <div className="ref-portrait-halftone">
+                <Image {...portrait} alt="" loading="eager" />
+              </div>
+            </div>
           </motion.div>
           <span className="ref-portrait-grid" aria-hidden="true" />
         </div>
-        <span className="ref-portrait-sweep" aria-hidden="true" />
         <span className="ref-portrait-marks" aria-hidden="true" />
         <p aria-hidden="true">FRONTEND / PRODUCT / SYSTEMS</p>
       </div>
