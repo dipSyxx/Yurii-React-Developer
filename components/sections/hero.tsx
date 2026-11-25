@@ -1,4 +1,3 @@
-import type { CSSProperties } from 'react'
 import { ArrowDownRight, ArrowUpRight, FileText } from 'lucide-react'
 import { HeroIdentityPanel } from '@/components/hero-identity-panel'
 import { profile } from '@/src/content/profile'
@@ -15,7 +14,7 @@ export function HeroSection() {
       <span className="ref-grid-plane" aria-hidden="true" />
       <div className="site-shell ref-hero-shell">
         <div className="ref-hero-copy">
-          <p className="ref-hero-kicker" style={{ '--delay': '80ms' } as CSSProperties}>
+          <p className="ref-hero-kicker">
             <span>FRONTEND / FULL-STACK DEVELOPER</span>
             <i aria-hidden="true" />
             NORWAY

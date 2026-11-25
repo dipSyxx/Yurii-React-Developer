@@ -129,7 +129,7 @@ Lucide icons provide a consistent 13–24px recognition layer for project domain
 
 ### Motion
 
-Motion is masked, directional, and brief: the nameplate reveals upward, the portrait enters through a clipped mask, content sections rise gently, active file and stack panels replace one another, and project images respond within their clipped frame. The client starts reveals once, just before offscreen elements enter the viewport. Static and already visible content remains visible. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables smooth scrolling, parallax, scanning, and non-essential transitions.
+The hero plays a single CSS entrance on load. The nameplate rises in two beats, a cobalt edge wipes open the portrait, and the description, actions, and facts follow in sequence. Below the hero, the client starts each reveal just before an offscreen element enters the viewport. Static and already visible sections remain visible. Active file and stack panels replace one another, and project images respond within their frames. Pointer-reactive surfaces use CSS variables for local perspective and inspection highlights rather than a replacement cursor. The only scroll-linked motion is the thin page progress line and restrained portrait movement. `prefers-reduced-motion` disables the hero entrance, smooth scrolling, parallax, scanning, and non-essential transitions.
 
 ### Content and data visualization
 

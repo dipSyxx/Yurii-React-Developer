@@ -16,7 +16,7 @@ export function HeroIdentityPanel() {
   const imageY = useTransform(scrollYProgress, [0, 1], [-18, 18])
 
   return (
-    <figure ref={panelRef} className="ref-identity-panel" data-reveal="portrait">
+    <figure ref={panelRef} className="ref-identity-panel">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>YURII.PROFILE</span>
@@ -24,16 +24,20 @@ export function HeroIdentityPanel() {
       </div>
 
       <div className="ref-portrait-stage">
-        <motion.div className="ref-portrait-motion" style={reduceMotion ? undefined : { y: imageY }}>
-          <Image
-            src="/myPhoto/myphoto.webp"
-            alt="Portrait of Yurii Linetskyi"
-            fill
-            priority
-            sizes="(max-width: 768px) 88vw, 34vw"
-          />
-        </motion.div>
-        <span className="ref-portrait-grid" aria-hidden="true" />
+        <div className="ref-portrait-aperture">
+          <motion.div className="ref-portrait-motion" style={reduceMotion ? undefined : { y: imageY }}>
+            <Image
+              src="/myPhoto/myphoto.webp"
+              alt="Portrait of Yurii Linetskyi"
+              fill
+              priority
+              sizes="(max-width: 768px) 88vw, 34vw"
+            />
+          </motion.div>
+          <span className="ref-portrait-grid" aria-hidden="true" />
+        </div>
+        <span className="ref-portrait-sweep" aria-hidden="true" />
+        <span className="ref-portrait-marks" aria-hidden="true" />
         <p aria-hidden="true">FRONTEND / PRODUCT / SYSTEMS</p>
       </div>
 
