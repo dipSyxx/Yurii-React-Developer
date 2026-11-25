@@ -11,7 +11,7 @@ export function ExperienceSection() {
       title="Commercial engineering experience"
       subtitle="SaaS development and high-volume data workflows at UDEX."
     >
-      <div className="ref-career-window" data-reveal="viewport">
+      <div className="ref-career-window" data-reveal="viewport" data-scroll-drawing="experience">
         <div className="ref-window-bar" aria-hidden="true">
           <span className="ref-window-dots"><i /><i /><i /></span>
           <span>CAREER.LOG</span>

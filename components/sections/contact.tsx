@@ -20,7 +20,7 @@ export function ContactSection() {
     >
       <div className="ref-contact-panel" data-reveal="viewport">
         <p>Email</p>
-        <a className="ref-contact-email" href={`mailto:${profile.email}`}>
+        <a className="ref-contact-email" href={`mailto:${profile.email}`} data-scroll-drawing="contact">
           <span><Mail size={20} aria-hidden="true" /> {profile.email}</span>
           <ArrowUpRight size={34} aria-hidden="true" />
         </a>

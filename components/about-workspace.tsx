@@ -18,7 +18,7 @@ export function AboutWorkspace() {
   const reduceMotion = useReducedMotion()
 
   return (
-    <div className="ref-workspace" data-reveal="viewport">
+    <div className="ref-workspace" data-reveal="viewport" data-scroll-drawing="about">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>ABOUT_ME/</span>

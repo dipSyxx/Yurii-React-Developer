@@ -82,7 +82,7 @@ export function StackExplorer() {
   const activeGroup = stackGroups.find((group) => group.id === activeId) ?? stackGroups[0]
 
   return (
-    <div className="ref-stack-browser" data-reveal="viewport">
+    <div className="ref-stack-browser" data-reveal="viewport" data-scroll-drawing="skills">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>TECHNOLOGIES/</span>

@@ -22,7 +22,7 @@ export function HeroIdentityPanel() {
   const imageY = useTransform(scrollYProgress, [0, 1], [-18, 18])
 
   return (
-    <figure ref={panelRef} className="ref-identity-panel">
+    <figure ref={panelRef} className="ref-identity-panel" data-scroll-drawing="portrait">
       <div className="ref-window-bar" aria-hidden="true">
         <span className="ref-window-dots"><i /><i /><i /></span>
         <span>YURII.PROFILE</span>

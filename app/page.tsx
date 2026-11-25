@@ -6,6 +6,7 @@ import { ExperienceSection } from '@/components/sections/experience'
 import { AboutSection } from '@/components/sections/about'
 import { ContactSection } from '@/components/sections/contact'
 import { PortfolioExperience } from '@/components/portfolio-experience'
+import { ScrollDrawing } from '@/components/scroll-drawing'
 import { profile } from '@/src/content/profile'
 
 function serializeJsonLd(value: object) {
@@ -33,6 +34,7 @@ export default function Home() {
       <Navigation />
       <PortfolioExperience showRail={false}>
         <main id="main-content">
+          <ScrollDrawing />
           <HeroSection />
           <AboutSection />
           <ProjectsSection />

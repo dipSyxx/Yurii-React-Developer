@@ -71,7 +71,7 @@ export function ProjectReel() {
   }
 
   return (
-    <div className="ref-project-reel" data-reveal="viewport">
+    <div className="ref-project-reel" data-reveal="viewport" data-scroll-drawing="work">
       <div className="ref-reel-toolbar">
         <p><span>INDEX/</span> 01—06</p>
         <div>

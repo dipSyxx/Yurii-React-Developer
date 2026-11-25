@@ -2513,6 +2513,87 @@ body {
 
 /* Motion */
 
+.ref-scroll-drawing {
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+[data-scroll-drawing] > .ref-window-bar {
+  background-image: linear-gradient(var(--accent-fill), var(--accent-fill));
+  background-repeat: no-repeat;
+  background-position: right bottom;
+  background-size: calc(var(--drawing-progress, 0) * 100%) 3px;
+}
+
+[data-scroll-drawing='work'] .ref-project-card {
+  --drawing-card-progress: clamp(0, calc((var(--drawing-progress, 0) - var(--drawing-card-delay, 0)) * 1.4), 1);
+}
+
+[data-scroll-drawing='work'] .ref-project-card:nth-child(3n + 2) { --drawing-card-delay: 0.14; }
+[data-scroll-drawing='work'] .ref-project-card:nth-child(3n + 3) { --drawing-card-delay: 0.28; }
+
+[data-scroll-drawing='work'] .ref-project-card::before,
+[data-scroll-drawing='work'] .ref-project-card::after {
+  position: absolute;
+  z-index: 3;
+  width: calc(0.65rem + var(--drawing-card-progress) * 1.15rem);
+  height: calc(0.65rem + var(--drawing-card-progress) * 1.15rem);
+  border: solid var(--accent-fill);
+  opacity: var(--drawing-card-progress);
+  content: '';
+  pointer-events: none;
+}
+
+[data-scroll-drawing='work'] .ref-project-card::before {
+  top: -1px;
+  left: -1px;
+  border-width: 2px 0 0 2px;
+}
+
+[data-scroll-drawing='work'] .ref-project-card::after {
+  right: -1px;
+  bottom: -1px;
+  border-width: 0 2px 2px 0;
+}
+
+[data-scroll-drawing='experience'] .ref-career-primary li {
+  background-image: linear-gradient(var(--accent-fill), var(--accent-fill));
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: calc(var(--drawing-progress, 0) * 18%) 1px;
+}
+
+[data-scroll-drawing='skills'] .ref-tech-card {
+  border-color: color-mix(in srgb, var(--accent) calc(var(--drawing-progress, 0) * 62%), var(--foreground));
+}
+
+.ref-contact-email[data-scroll-drawing]::after {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  transform: scaleX(var(--drawing-progress, 0));
+  transform-origin: right;
+  background: var(--accent-fill);
+  content: '';
+  pointer-events: none;
+}
+
+@media (min-width: 64rem) {
+  :is([data-scroll-drawing='about'], [data-scroll-drawing='experience']) > .ref-window-bar {
+    background-position: left bottom;
+  }
+
+  .ref-contact-email[data-scroll-drawing]::after { transform-origin: left; }
+}
+
 html[data-project-transition]::view-transition-group(root) {
   animation-duration: 120ms;
 }
@@ -2803,6 +2884,7 @@ html[data-project-transition]::view-transition-new(project-preview) {
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .ref-scroll-drawing { display: none; }
   /* Accessibility override: the user motion preference must override inline library animation. */
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: 0.01ms !important; }
   [data-reveal][data-visible='true'],
